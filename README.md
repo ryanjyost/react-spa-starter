@@ -1,4 +1,4 @@
-# React Boilerplate
+# React SPA Starter
 
 The goal of this project is to be a starting point/boilerplate for complex single-page applications
 built using a modern React/Redux stack.
