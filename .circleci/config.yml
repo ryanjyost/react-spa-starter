@@ -36,4 +36,4 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: yarn ci:cypress-run
+      - run: yarn ci:cypress
