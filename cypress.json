@@ -1,0 +1,17 @@
+{
+   "baseUrl": "http://localhost:3000",
+   "ignoreTestFiles": "**/_examples/**",
+   "viewportWidth": 1280,
+   "viewportHeight": 800,
+   "video": false,
+   "videosFolder": "tests/cypress/video",
+   "screenshotsFolder": "tests/cypress/screenshots",
+   "fixturesFolder": "tests/cypress/fixtures",
+   "integrationFolder": "tests/cypress/integration",
+   "pluginsFile": "tests/cypress/plugins/index.js",
+   "supportFile": "tests/cypress/support/index.js",
+   "reporter": "cypress-multi-reporters",
+   "reporterOptions": {
+      "configFile": "tests/cypress/reporterOptions.json"
+   }
+}

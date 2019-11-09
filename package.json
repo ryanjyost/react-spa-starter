@@ -1,0 +1,73 @@
+{
+   "name": "react-starter",
+   "version": "0.1.0",
+   "private": true,
+   "scripts": {
+      "build": "react-app-rewired build",
+      "build:dev": "env REACT_APP_SaltEnv='DEV' npm run build",
+      "build:staging": "env REACT_APP_SaltEnv='STAGING' npm run build",
+      "build:prod": "env REACT_APP_SaltEnv='PRODUCTION' npm run build",
+      "check:circular": "madge --circular ./src",
+      "check:orphans": "madge --orphans ./src",
+      "cypress": "cypress open",
+      "reports:clear": "rm tests/cypress/reports/* || true",
+      "reports:combine": "npx mochawesome-merge --reportDir tests/cypress/reports > tests/cypress/reports/combined.json",
+      "reports:html": "npx mochawesome-report-generator --reportDir tests/cypress/reports tests/cypress/reports/combined.json",
+      "setup": "npm install && npm run start",
+      "start": "react-app-rewired start",
+      "test": "npm run reports:clear && cypress run",
+      "test:report": "npm run reports:combine && npm run reports:html"
+   },
+   "dependencies": {
+      "antd": "^3.24.3",
+      "apisauce": "^1.1.1",
+      "camelcase": "^5.3.1",
+      "cypress-multi-reporters": "^1.2.3",
+      "env-cmd": "^10.0.1",
+      "immutability-helper": "^3.0.1",
+      "less": "^3.10.3",
+      "less-loader": "^5.0.0",
+      "mocha-junit-reporters": "^1.23.6",
+      "moment": "^2.24.0",
+      "prop-types": "^15.7.2",
+      "react": "^16.11.0",
+      "react-dom": "^16.11.0",
+      "react-redux": "^7.1.1",
+      "react-responsive": "^8.0.1",
+      "react-router-dom": "^5.1.2",
+      "react-scripts": "3.2.0",
+      "redux": "^4.0.4",
+      "redux-devtools-extension": "^2.13.8",
+      "redux-persist": "^6.0.0",
+      "redux-saga": "^1.1.1"
+   },
+   "devDependencies": {
+      "babel-plugin-import": "^1.12.2",
+      "customize-cra": "^0.8.0",
+      "cypress": "^3.5.0",
+      "eslint": "^6.6.0",
+      "eslint-plugin-cypress": "^2.7.0",
+      "eslint-plugin-react": "^7.16.0",
+      "madge": "^3.5.0",
+      "mocha": "^6.2.2",
+      "mochawesome": "^4.1.0",
+      "mochawesome-merge": "^2.0.1",
+      "mochawesome-report-generator": "^4.0.1",
+      "react-app-rewired": "^2.1.4"
+   },
+   "eslintConfig": {
+      "extends": "react-app"
+   },
+   "browserslist": {
+      "production": [
+         ">0.2%",
+         "not dead",
+         "not op_mini all"
+      ],
+      "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+      ]
+   }
+}
