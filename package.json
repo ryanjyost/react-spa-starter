@@ -9,13 +9,14 @@
       "build:prod": "env REACT_APP_SaltEnv='PRODUCTION' npm run build",
       "check:circular": "madge --circular ./src",
       "check:orphans": "madge --orphans ./src",
+      "ci:cypress": "start-server-and-test start http://localhost:3000 test",
       "cypress": "cypress open",
       "reports:clear": "rm tests/cypress/reports/* || true",
       "reports:combine": "npx mochawesome-merge --reportDir tests/cypress/reports > tests/cypress/reports/combined.json",
       "reports:html": "npx mochawesome-report-generator --reportDir tests/cypress/reports tests/cypress/reports/combined.json",
       "setup": "npm install && npm run start",
       "start": "react-app-rewired start",
-      "test": "npm run reports:clear && cypress run",
+      "test": "cypress run",
       "test:report": "npm run reports:combine && npm run reports:html"
    },
    "dependencies": {
@@ -53,7 +54,8 @@
       "mochawesome": "^4.1.0",
       "mochawesome-merge": "^2.0.1",
       "mochawesome-report-generator": "^4.0.1",
-      "react-app-rewired": "^2.1.4"
+      "react-app-rewired": "^2.1.4",
+      "start-server-and-test": "^1.10.6"
    },
    "eslintConfig": {
       "extends": "react-app"
