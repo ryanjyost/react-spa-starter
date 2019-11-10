@@ -10,7 +10,7 @@ const { Header } = Layout;
 const { Title } = Typography;
 
 function MainHeader({ logout, sidebarIsCollapsed, toggleCollapsed }) {
-  console.log("TEST NO DEPLOY");
+  console.log("THIS SHOULD SHOW UP");
    const isMediumOrSmaller = useResponsive('md');
    const currentContentOffset = isMediumOrSmaller
       ? 0
