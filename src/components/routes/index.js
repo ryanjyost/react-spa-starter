@@ -24,6 +24,7 @@ export const RootAppComponentWithRoutes = ({ routes }) => {
 	);
 };
 
+// allows for rendering nested Route components
 export const RouteWithSubRoutes = (route) => {
 	return (
 		<Route
