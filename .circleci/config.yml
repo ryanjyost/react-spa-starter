@@ -54,7 +54,7 @@ jobs:
 #          key: v1-dependencies-{{ checksum "package.json" }}
 
       # build
-      - run: npm run build:react
+      - run: npm run build:prod
 
       # deploy
 #      - run: sudo apt-get update && sudo apt-get install -y python-dev
