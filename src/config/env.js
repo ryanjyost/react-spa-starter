@@ -7,19 +7,23 @@ const common = {
 };
 
 const LOCAL = {
-   envDisplay: 'Local'
+   envDisplay: 'Local',
+   clientUrl: 'http://localhost:3000'
 };
 
 const DEV = {
-   envDisplay: 'Development'
+   envDisplay: 'Development',
+   clientUrl: 'http://localhost:3000'
 };
 
 const STAGING = {
-   envDisplay: 'Staging'
+   envDisplay: 'Staging',
+   clientUrl: 'http://localhost:3000'
 };
 
 const PRODUCTION = {
-   envDisplay: 'Production'
+   envDisplay: 'Production',
+   clientUrl: 'http://localhost:3000'
 };
 
 export const local = { ...common, ...LOCAL };

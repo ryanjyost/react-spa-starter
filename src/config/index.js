@@ -10,5 +10,6 @@ else if (env === 'STAGING') config = staging;
 else if (env === 'DEV') config = dev;
 
 // Config variables
-export const envDisplay = config.envDisplay;
-export const ApiBaseUrl = config.apiUrl;
+export const $envDisplay = config.envDisplay;
+export const $ApiBaseUrl = config.apiUrl;
+export const $clientUrl = config.clientUrl;

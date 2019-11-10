@@ -1,9 +1,9 @@
 import apisauce from 'apisauce';
-import { ApiBaseUrl } from '../config';
+import { $ApiBaseUrl } from '../config';
 
 const create = () => {
    const api = apisauce.create({
-      baseURL: ApiBaseUrl
+      baseURL: $ApiBaseUrl
    });
 
    const getRandomDogs = count => api.get(`/breeds/image/random/${count || 1}`);

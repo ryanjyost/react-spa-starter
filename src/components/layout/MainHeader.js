@@ -5,7 +5,7 @@ import { Layout, Icon, Typography } from 'antd';
 import { RouteMap } from '../../routes';
 import { Actions } from '../../store';
 import STYLES, { useResponsive } from '../../styles';
-import { envDisplay } from '../../config';
+import { $envDisplay } from '../../config';
 const { Header } = Layout;
 const { Title } = Typography;
 
@@ -38,7 +38,7 @@ function MainHeader({ logout, sidebarIsCollapsed, toggleCollapsed }) {
                type={sidebarIsCollapsed ? 'menu-unfold' : 'menu-fold'}
                onClick={toggleCollapsed}
             />
-            <Title level={4}>{`${envDisplay} Environment`}</Title>
+            <Title level={4}>{`${$envDisplay} Environment`}</Title>
          </div>
          <div>
             <Link to={RouteMap.ROOT} style={{ margin: '0px 10px' }} onClick={logout}>

@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom';
 import { RouteMap } from '../../routes';
 import { StackedInputGroup } from '../forms';
 import { LoadingPageWrapper } from '../wrappers';
+import {$clientUrl, $envDisplay} from '../../config';
 
 const LoginScreen = ({ login, isAuthenticated, fetching }) => {
    const [username, updateUsername] = useState('');
@@ -34,7 +35,7 @@ const LoginScreen = ({ login, isAuthenticated, fetching }) => {
                justifyContent: 'center'
             }}>
             <Card
-               title="User Login w/ Zero Security"
+               title={`Log In to ${$envDisplay} Environment`}
                style={{ width: 500, padding: 40 }}
                headStyle={{ border: 'none', fontSize: 24 }}>
                <StackedInputGroup label={'Username'}>

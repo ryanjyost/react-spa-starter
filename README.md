@@ -10,7 +10,7 @@ and provide code that can be easily renamed/repurposed for a new project.
 ## Quick Start
 
 1. Make sure you have modern versions of Node (>= 10.16.0) and npm (>= 6.9.0). Using [nvm](https://github.com/nvm-sh/nvm) makes life easy.
-2. Clone this repo with `git clone https://github.com/ServerCentral/react-boilerplate.git <YOUR_PROJECT_NAME>`
+2. Clone this repo with `git clone https://github.com/ryanjyost/react-spa-starter.git <YOUR_PROJECT_NAME>`
 3. `cd <YOUR_PROJECT_NAME>`
 4. Run `npm run setup`
 

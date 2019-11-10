@@ -1,8 +1,10 @@
 AWSTemplateFormatVersion: 2010-09-09
+
 Parameters:
   RootBucketName:
     Description: Unique base name for your app that will be used in prod and staging bucket names.
     Type: String
+
 Resources:
   ProdBucket:
     Type: AWS::S3::Bucket
@@ -49,11 +51,11 @@ Outputs:
       - ProdBucket
       - WebsiteURL
     Description: URL for website hosted on S3
-  S3BucketSecureURL:
-    Value: !Join
-      - ''
-      - - 'https://'
-        - !GetAtt
-          - ProdBucket
-          - DomainName
-    Description: Name of S3 bucket to hold website content
+#  S3BucketSecureURL:
+#    Value: !Join
+#      - ''
+#      - - 'https://'
+#        - !GetAtt
+#          - ProdBucket
+#          - DomainName
+#    Description: Name of S3 bucket to hold website content
