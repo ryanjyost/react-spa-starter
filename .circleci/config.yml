@@ -33,7 +33,7 @@ jobs:
 
   deploy-prod:
     docker:
-      - image: circleci/node:10.16
+      - image: circleci/node:12.8.0-buster
 
     working_directory: ~/repo
 
