@@ -69,12 +69,13 @@ workflows:
   version: 2
   test-build-deploy:
     jobs:
-      - build:
+      - test:
           filters:
             branches:
               ignore:
                 - develop
                 - /feature-.*/
+                - /bug-.*/
 #      - deploy-stage:
 #          requires:
 #            - build
