@@ -33,7 +33,7 @@ jobs:
 ########################
 # deploy-staging - Build and deploy to the staging S3 bucket
 ########################
-  deploy-prod:
+  deploy-staging:
     docker:
       - image: circleci/node:12.8.0-buster
     working_directory: ~/repo
