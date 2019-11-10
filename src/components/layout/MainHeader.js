@@ -11,6 +11,7 @@ const { Title } = Typography;
 
 function MainHeader({ logout, sidebarIsCollapsed, toggleCollapsed }) {
    const isMediumOrSmaller = useResponsive('md');
+
    const currentContentOffset = isMediumOrSmaller
       ? 0
       : sidebarIsCollapsed
@@ -58,7 +59,4 @@ const mapDispatchToProps = dispatch => {
    };
 };
 
-export default connect(
-   mapStateToProps,
-   mapDispatchToProps
-)(withRouter(MainHeader));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(MainHeader));

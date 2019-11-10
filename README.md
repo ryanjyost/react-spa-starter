@@ -44,12 +44,13 @@ Here the proper configuration is selected based on the `REACT_APP_SaltEnv` (CRA'
 
 Non-sensitive information can be hardcoded in their respective config objects, while any environment variables can simply be passed through. See the boilerplate for an example.
 
-### `.env` file
+### `.env.<environment>` files
 
 #### This is for variables that...
 
 -  can't be committed to even a private repository b/c they are too secret (not terribly common in frontend)
 -  are specific to each development environment, a.k.a. different across developers working on this project
+-  need to be used in scripts 
 
 #### _Things to note..._
 
@@ -111,6 +112,8 @@ Check out package.json for the actual code/commands that are executed by these c
 Before any deployment, you need to run the build script for the particular environment you're deploying to.
 **Here's some links that were helpful**
 [Deploying create-react-app to S3 and CloudFront](https://medium.com/@wolovim/deploying-create-react-app-to-s3-or-cloudfront-48dae4ce0af)
+
+ --parameter-overrides RootBucketName=react-spa-starter
 
 ## Testing
 
