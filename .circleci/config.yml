@@ -42,13 +42,9 @@ jobs:
       # build and deploy
       - run: yarn build:prod
       - aws-s3/sync:
-          from: bucket
+          from: build
           to: 's3://react-spa-starter-production/'
           arguments: |
             --acl public-read \
             --cache-control "max-age=86400"
           overwrite: true
-      - aws-s3/copy:
-          from: bucket/build_aßsset.txt
-          to: 's3://my-s3-bucket-name'
-          arguments: '--dryrun'

@@ -11,6 +11,7 @@
       "check:orphans": "madge --orphans ./src",
       "ci:cypress": "start-server-and-test start http://localhost:3000 test",
       "cypress": "cypress open",
+      "deploy:prod":"npm run build:prod && aws s3 sync build/ s3://react-spa-starter-production --delete",
       "reports:clear": "rm tests/cypress/reports/* || true",
       "reports:combine": "npx mochawesome-merge --reportDir tests/cypress/reports > tests/cypress/reports/combined.json",
       "reports:html": "npx mochawesome-report-generator --reportDir tests/cypress/reports tests/cypress/reports/combined.json",
