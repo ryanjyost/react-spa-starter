@@ -1,11 +1,11 @@
 # Javascript Node CircleCI 2.0 configuration file
-# change for build 1
+# change for build 2
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2
 orbs:
     cypress: cypress-io/cypress@1
-    aws-s3: circleci/aws-s3@1.0.11
+    aws-s3: circleci/aws-s3@1.0.0
 jobs:
   build:
     docker:
