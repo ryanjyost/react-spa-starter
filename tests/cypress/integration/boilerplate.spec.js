@@ -50,7 +50,7 @@ context(`Test the boilerplate`, function() {
       cy.get('.dogImage').should('have.length', 20);
    });
 
-	specify(`Fail on purpose`, function() {
+	specify.skip(`Fail the test suite`, function() {
 		assert(1 === 2);
 	});
 });

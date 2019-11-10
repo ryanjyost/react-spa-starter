@@ -1,6 +1,6 @@
 import React from 'react';
 import { Login, Dogs, RandomDogFetcher, Breeds, BreedDetails } from '../components/pages';
-import { RootAppComponentWithRoutes, RootRouteComponentWithSubRoutes } from './helpers';
+import { RootAppComponentWithRoutes, RootRouteComponentWithSubRoutes } from '../components/routes';
 
 /*******************************
  DEFAULTS

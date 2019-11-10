@@ -7,8 +7,7 @@ import * as serviceWorker from './services/serviceWorker';
 import configureStore from './store';
 import routes from './routes';
 import { RootWrapper } from './components/wrappers';
-import { RouteWithSubRoutes } from './components/hoc';
-import NotFound from './components/pages/NotFound';
+import { RootRouteComponentWithSubRoutes } from './components/routes';
 import './styles/css/index.css';
 
 const { store, persistor } = configureStore();
@@ -18,12 +17,7 @@ ReactDOM.render(
       <PersistGate loading={null} persistor={persistor}>
          <Router>
             <RootWrapper>
-               <Switch>
-                  {routes.map((route, i) => (
-                     <RouteWithSubRoutes key={i} {...route} />
-                  ))}
-                  <Route component={NotFound} />
-               </Switch>
+              <RootRouteComponentWithSubRoutes routes={routes}/>
             </RootWrapper>
          </Router>
       </PersistGate>
