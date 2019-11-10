@@ -84,7 +84,7 @@ workflows:
 #              only: staging
       - deploy-prod:
           requires:
-            - build
+            - test
           filters:
             branches:
               only: master
