@@ -30,6 +30,7 @@ jobs:
 
       # run tests!
       - run: yarn ci:cypress
+
   deploy-prod:
     docker:
       - image: circleci/node:10.16
@@ -39,19 +40,18 @@ jobs:
     steps:
       - checkout
 
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+#      # Download and cache dependencies
+#      - restore_cache:
+#          keys:
+#            - v1-dependencies-{{ checksum "package.json" }}
+#            # fallback to using the latest cache if no exact match is found
+#            - v1-dependencies-
 
       - run: yarn install
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+#      - save_cache:
+#          paths:
+#            - node_modules
+#          key: v1-dependencies-{{ checksum "package.json" }}
 
       # build
       - run: npm run build:prod
@@ -69,13 +69,13 @@ workflows:
   version: 2
   test-build-deploy:
     jobs:
-      - test:
-          filters:
-            branches:
-              ignore:
-                - develop
-                - /feature-.*/
-                - /bug-.*/
+#      - test:
+#          filters:
+#            branches:
+#              ignore:
+#                - develop
+#                - /feature-.*/
+#                - /bug-.*/
 #      - deploy-stage:
 #          requires:
 #            - build
@@ -83,8 +83,8 @@ workflows:
 #            branches:
 #              only: staging
       - deploy-prod:
-          requires:
-            - test
+#          requires:
+#            - test
           filters:
             branches:
               only: master
