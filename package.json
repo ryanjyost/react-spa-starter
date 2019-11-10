@@ -4,8 +4,8 @@
    "private": true,
    "scripts": {
       "build": "react-app-rewired build",
-      "build:staging": "env-cmd -f .env.staging env CI='false' npm run build",
-      "build:prod": "env-cmd -f .env.production env CI='false' npm run build",
+      "build:staging": "env REACT_APP_SaltEnv='STAGING' CI='false' npm run build",
+      "build:prod": "env REACT_APP_SaltEnv='PRODUCTION' CI='false' npm run build",
       "check:circular": "madge --circular ./src",
       "check:orphans": "madge --orphans ./src",
       "ci:cypress": "start-server-and-test start http://localhost:3000 test",
