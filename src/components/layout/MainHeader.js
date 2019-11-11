@@ -10,8 +10,9 @@ const { Header } = Layout;
 const { Title } = Typography;
 
 function MainHeader({ logout, sidebarIsCollapsed, toggleCollapsed }) {
-   const isMediumOrSmaller = useResponsive('md');
+   console.log('SHOW UP IN STAGING');
 
+   const isMediumOrSmaller = useResponsive('md');
    const currentContentOffset = isMediumOrSmaller
       ? 0
       : sidebarIsCollapsed
