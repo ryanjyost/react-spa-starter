@@ -10,7 +10,7 @@ const { Header } = Layout;
 const { Title } = Typography;
 
 function MainHeader({ logout, sidebarIsCollapsed, toggleCollapsed }) {
-   console.log('SHOW UP IN STAGING');
+   console.log('SHOW UP IN PROD');
 
    const isMediumOrSmaller = useResponsive('md');
    const currentContentOffset = isMediumOrSmaller
