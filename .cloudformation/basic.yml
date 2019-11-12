@@ -27,7 +27,7 @@ Resources:
           IndexDocument: index.html
           ErrorDocument: index.html
       DeletionPolicy: Retain
-  BucketPolicy:
+  ProductionBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
       Bucket: !Ref ProdBucket
@@ -44,6 +44,23 @@ Resources:
               - - 'arn:aws:s3:::'
                 - !Ref ProdBucket
                 - /*
+  StagingBucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket: !Ref StagingBucket
+        PolicyDocument:
+          Id: MyPolicy
+          Version: 2012-10-17
+          Statement:
+            - Sid: PublicReadForGetBucketObjects
+              Effect: Allow
+              Principal: '*'
+              Action: 's3:GetObject'
+              Resource: !Join
+                - ''
+                - - 'arn:aws:s3:::'
+                  - !Ref StagingBucket
+                  - /*
 
 Outputs:
   WebsiteURL:
