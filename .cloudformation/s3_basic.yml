@@ -1,3 +1,4 @@
+# Create an S3 Bucket that hosts a React app
 AWSTemplateFormatVersion: 2010-09-09
 
 Parameters:
