@@ -1,0 +1,38 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Parameters:
+  BucketName:
+    Description: Unique name for your bucket. This will be in the S3 url to your React app.
+    Type: String
+
+Resources:
+  # Create an S3 Bucket that serves a static website (i.e. React app)
+  Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      AccessControl: PublicRead # visitors need to be able to access the sie
+      WebsiteConfiguration: # this makes the S3 Bucket a static website/app
+        IndexDocument: index.html
+        ErrorDocument: index.html # let React handle errors and routing
+    DeletionPolicy: Retain
+
+  # Add a Bucket Policy that lets visitors access the web app
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref Bucket
+      PolicyDocument:
+        Id: MyPolicy
+        Version: 2012-10-17
+        Statement: # lets users access/view the contents of your Bucket, i.e. web app
+          - Sid: PublicReadForGetBucketObjects
+            Effect: Allow
+            Principal: '*'
+            Action: 's3:GetObject'
+            Resource: !Join ['', ['arn:aws:s3:::', !Ref Bucket, /*]]
+
+Outputs:
+  WebsiteURL:
+    Value: !GetAtt Bucket.WebsiteURL
+    Description: URL for website hosted on S3

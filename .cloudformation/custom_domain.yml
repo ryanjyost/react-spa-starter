@@ -213,11 +213,3 @@ Outputs:
   FullDomain:
     Value: !Ref 'FullDomainName'
     Description: Full DomainName
-#  S3BucketSecureURL:
-#    Value: !Join
-#      - ''
-#      - - 'https://'
-#        - !GetAtt
-#          - ProdBucket
-#          - DomainName
-#    Description: Name of S3 bucket to hold website content

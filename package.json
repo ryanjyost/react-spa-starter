@@ -12,7 +12,7 @@
       "cypress": "cypress open",
       "deploy:staging": "aws s3 sync build/ s3://staging.react-spa-starter.com --delete",
       "deploy:prod": "aws s3 sync build/ s3://react-spa-starter.com --delete",
-      "provision:basic": "aws cloudformation deploy --template-file ./.cloudformation/basic.yml --stack-name react-spa-starter-basic --parameter-overrides RootBucketName=react-spa-starter",
+      "provision:s3_prod_and_staging": "aws cloudformation deploy --template-file ./.cloudformation/s3_prod_and_staging.yml --stack-name s3_prod_and_staging --parameter-overrides RootBucketName=react-spa-starter",
       "provision:customDomain": "aws cloudformation deploy --template-file ./.cloudformation/customDomain.yml --stack-name react-spa-starter-custom --parameter-overrides DomainName=react-spa-starter.com FullDomainName=www.react-spa-starter.com AcmCertificateArn=arn:aws:acm:us-east-1:567631136716:certificate/f6f718cc-7df1-40bb-8141-8d5753d51377",
       "reports:clear": "rm tests/cypress/reports/* || true",
       "reports:combine": "npx mochawesome-merge --reportDir tests/cypress/reports > tests/cypress/reports/combined.json",

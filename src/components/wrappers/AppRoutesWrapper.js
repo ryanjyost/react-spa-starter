@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import { RouteMap } from '../../routes';
 import { MainSidebar, MainHeader, OverlayBackground } from '../layout';
 import { ErrorBoundary } from '../hoc';
 import { ErrorPage } from '../pages';
+import { usePrevious } from '../hooks';
 import STYLES, { useResponsive } from '../../styles';
 import { Layout, message } from 'antd';
 const { Content } = Layout;
 
-function AppRoutesWrapper({ isAuthenticated, children }) {
+function AppRoutesWrapper({ isAuthenticated, children, location }) {
    const [isCollapsed, toggleCollapsed] = useState(true);
    const isMediumOrSmaller = useResponsive('md');
    const currentContentOffset = isMediumOrSmaller
@@ -17,6 +18,15 @@ function AppRoutesWrapper({ isAuthenticated, children }) {
       : isCollapsed
       ? STYLES.collapsedSidebarWidth
       : STYLES.expandedSidebarWidth;
+
+   const { pathname } = location;
+   const prevPathname = usePrevious(pathname);
+
+   useEffect(() => {
+      if (prevPathname && isMediumOrSmaller && pathname !== prevPathname) {
+         toggleCollapsed(true);
+      }
+   }, [location]);
 
    // if user isn't authenticated, then send to login page
    if (!isAuthenticated) {
@@ -29,7 +39,6 @@ function AppRoutesWrapper({ isAuthenticated, children }) {
          <MainSidebar isCollapsed={isCollapsed} />
          <Layout>
             <MainHeader sidebarIsCollapsed={isCollapsed} toggleCollapsed={() => toggleCollapsed(!isCollapsed)} />
-
             <Content
                style={{
                   padding: `${STYLES.appHeaderHeight + 20}px 0px 0px 0px`,
@@ -60,7 +69,4 @@ const mapDispatchToProps = dispatch => {
    return {};
 };
 
-export default connect(
-   mapStateToProps,
-   mapDispatchToProps
-)(AppRoutesWrapper);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(AppRoutesWrapper));
