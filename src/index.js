@@ -10,7 +10,7 @@ import { RootWrapper } from './components/wrappers';
 import { RootRouteComponentWithSubRoutes } from './components/routes';
 import './styles/css/index.css';
 
-console.log('ENV', process.env);
+console.log('ENV VARS', process.env);
 
 const { store, persistor } = configureStore();
 
