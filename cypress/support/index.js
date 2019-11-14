@@ -14,7 +14,7 @@
 // ***********************************************************
 
 // Import index.js using ES2015 syntax:
-import './commands';
+import './commands/index';
 
 /**********************************
  Fail tests when there's an unknown console error

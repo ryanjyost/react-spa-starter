@@ -1,0 +1,163 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2019-11-09T22:23:46.206Z",
+    "end": "2019-11-09T22:24:05.840Z",
+    "duration": 19634,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "521d761e-6db0-41aa-9f9f-c3db3356c386",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b694ce16-ea52-4624-9356-f7b682e0fff5",
+          "title": "Test the boilerplate",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "User can login and see the app welcome page",
+              "fullTitle": "Test the boilerplate User can login and see the app welcome page",
+              "timedOut": null,
+              "duration": 6562,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "login();\ncy.get('h1').contains('Welcome to the App').should('exist');",
+              "err": {},
+              "uuid": "0bac0853-6dbe-459d-9f4f-4fa47b4bd1c9",
+              "parentUUID": "b694ce16-ea52-4624-9356-f7b682e0fff5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Logging out a user requires re-login",
+              "fullTitle": "Test the boilerplate Logging out a user requires re-login",
+              "timedOut": null,
+              "duration": 5861,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "login();\ncy.get('a').contains('Logout').click();\ncy.visit('/app/dogs');\ncy.get(\"input[name=\\\"username\\\"]\").should('exist');",
+              "err": {},
+              "uuid": "b50a3545-a157-44c7-8c21-f9ea7abb7e9b",
+              "parentUUID": "b694ce16-ea52-4624-9356-f7b682e0fff5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Unauthenticated user is redirected back to the login page",
+              "fullTitle": "Test the boilerplate Unauthenticated user is redirected back to the login page",
+              "timedOut": null,
+              "duration": 1456,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/app');\ncy.get(\"input[name=\\\"username\\\"]\").should('exist');\ncy.visit('/app/dogs');\ncy.get(\"input[name=\\\"username\\\"]\").should('exist');",
+              "err": {},
+              "uuid": "eb2b7b7e-690b-415a-9b9b-d84ec05b3141",
+              "parentUUID": "b694ce16-ea52-4624-9356-f7b682e0fff5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "View a list of random dogs",
+              "fullTitle": "Test the boilerplate View a list of random dogs",
+              "timedOut": null,
+              "duration": 5491,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.server();\nlogin();\ncy.get('#sideBarToggle').click();\ncy.get('.ant-menu-submenu-title').contains('Dogs').click();\ncy.get('.ant-menu-item').contains('Dogs').click();\ncy.get('.dogImage').should('have.length', 20);",
+              "err": {},
+              "uuid": "8c6c8095-11db-466d-a974-bebb83688c2b",
+              "parentUUID": "b694ce16-ea52-4624-9356-f7b682e0fff5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0bac0853-6dbe-459d-9f4f-4fa47b4bd1c9",
+            "b50a3545-a157-44c7-8c21-f9ea7abb7e9b",
+            "eb2b7b7e-690b-415a-9b9b-d84ec05b3141",
+            "8c6c8095-11db-466d-a974-bebb83688c2b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 19370,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "6.2.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports",
+        "quiet": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "4.0.1"
+    }
+  }
+}

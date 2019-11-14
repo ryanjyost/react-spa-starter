@@ -40,7 +40,7 @@ There are multiple ways to inject and manage environment variables in this proje
 
 ### `src/config`
 
-Here the proper configuration is selected based on the `REACT_APP_SaltEnv` (CRA's `NODE_ENV` is always production when built and deployed, so we need our own).
+Here the proper configuration is selected based on the `REACT_APP_ENV` (CRA's `NODE_ENV` is always production when built and deployed, so we need our own).
 
 Non-sensitive information can be hardcoded in their respective config objects, while any environment variables can simply be passed through. See the boilerplate for an example.
 
@@ -63,7 +63,7 @@ Any script in `package.json` can have an environment variable explicitly set. He
 
 ```
 "scripts": {
-    "deploy:prod": "env REACT_APP_SaltEnv='PRODUCTION' npm run build"
+    "deploy:prod": "env REACT_APP_ENV='PRODUCTION' npm run build"
 }
 ```
 
@@ -105,7 +105,7 @@ Check out package.json for the actual code/commands that are executed by these c
 -  **`setup`** - Prep a newly forked project. It installs dependencies and starts the app.
 -  **`start`** - Run the app in development.
 -  **`test`** - Runs the cypress test suite in headless mode and generates raw reports.
--  **`test:report`** - AFTER running the test suite in headless mode, execute this command to generate a nice HTML report in the `tests/cypress/reports` folder
+-  **`test:report`** - AFTER running the test suite in headless mode, execute this command to generate a nice HTML report in the `cypress/reports` folder
 
 ## Deployment
 

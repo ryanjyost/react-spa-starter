@@ -2,11 +2,11 @@ version: 2
 orbs:
     cypress: cypress-io/cypress@1
     aws-s3: circleci/aws-s3@1.0.0
+
+############################
 jobs:
-########################
-# test - Run Cypress Tests
-########################
-  test:
+  # Run Cypress Tests
+  test-cypress:
     docker:
       - image: cypress/base:8
     working_directory: ~/repo
@@ -24,17 +24,19 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       # run tests!
-      - run: yarn ci:cypress
+      - run: yarn cypress:circleci
 
-########################
-# deploy-staging - Build and deploy to the staging S3 bucket
-########################
+  # Deploy to the staging S3 bucket
   deploy-staging:
     docker:
       - image: circleci/node:12.8.0-buster
     working_directory: ~/repo
     steps:
       - checkout
+
+      # run unit tests
+      - run: npm run test
+
       # setup stuff for AWS CLI deploy
       - run: sudo apt-get update && sudo apt-get install -y python-dev
       - run: sudo curl -O https://bootstrap.pypa.io/get-pip.py
@@ -45,18 +47,20 @@ jobs:
 
       # install deps, build and deploy
       - run: npm install
-      - run: npm run build:staging
       - run: yarn run deploy:staging
 
-########################
-# deploy-prod - Build and deploy to the production S3 bucket
-########################
+
+  # Deploy to the production S3 bucket
   deploy-prod:
     docker:
       - image: circleci/node:12.8.0-buster
     working_directory: ~/repo
     steps:
       - checkout
+
+      # run unit tests
+      - run: npm run test
+
       # setup stuff for AWS CLI deploy
       - run: sudo apt-get update && sudo apt-get install -y python-dev
       - run: sudo curl -O https://bootstrap.pypa.io/get-pip.py
@@ -67,32 +71,29 @@ jobs:
 
       # install deps, build and deploy
       - run: npm install
-      - run: npm run build:prod
       - run: yarn run deploy:prod
 
-########################
-# workflows
-########################
+############################
 workflows:
   version: 2
   test-build-deploy:
     jobs:
-      - test:
-          filters:
-            branches:
-              ignore: # only test pushes/pulls to staging and master
-                - develop
-                - /feature-.*/
-                - /bug-.*/
+#      - test-cypress:
+#          filters:
+#            branches:
+#              ignore: # only test pushes/pulls to staging and master
+#                - develop
+#                - /feature-.*/
+#                - /bug-.*/
       - deploy-staging:
           requires:
-            - test
+            - test-cypress
           filters:
             branches:
               only: staging
       - deploy-prod:
           requires:
-            - test # don't deploy unless tests pass
+            - test-cypress # don't deploy unless tests pass
           filters:
             branches:
               only: master

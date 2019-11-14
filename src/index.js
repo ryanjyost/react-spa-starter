@@ -10,6 +10,8 @@ import { RootWrapper } from './components/wrappers';
 import { RootRouteComponentWithSubRoutes } from './components/routes';
 import './styles/css/index.css';
 
+console.log('ENV', process.env);
+
 const { store, persistor } = configureStore();
 
 ReactDOM.render(
@@ -17,7 +19,7 @@ ReactDOM.render(
       <PersistGate loading={null} persistor={persistor}>
          <Router>
             <RootWrapper>
-              <RootRouteComponentWithSubRoutes routes={routes}/>
+               <RootRouteComponentWithSubRoutes routes={routes} />
             </RootWrapper>
          </Router>
       </PersistGate>

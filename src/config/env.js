@@ -1,29 +1,25 @@
 /*
-Hard code or grab from .env file any environment-specific config options
+These are non-secret environment configs
  */
 
 const common = {
-   apiUrl: process.env.REACT_APP_ApiBaseUrl || 'https://dog.ceo/api'
+   apiUrl: process.env.REACT_APP_ApiBaseUrl
 };
 
 const LOCAL = {
-   envDisplay: 'Local',
-   clientUrl: 'http://localhost:3000'
+   envDisplay: 'Local'
 };
 
 const DEV = {
-   envDisplay: 'Development',
-   clientUrl: 'http://localhost:3000'
+   envDisplay: 'Development'
 };
 
 const STAGING = {
-   envDisplay: 'Staging',
-   clientUrl: 'http://localhost:3000'
+   envDisplay: 'Staging'
 };
 
 const PRODUCTION = {
-   envDisplay: 'Production',
-   clientUrl: 'http://localhost:3000'
+   envDisplay: 'Production'
 };
 
 export const local = { ...common, ...LOCAL };
