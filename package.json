@@ -3,7 +3,7 @@
    "version": "0.1.0",
    "private": true,
    "scripts": {
-      "build": "react-app-rewired build",
+      "build": "env CI='false' react-app-rewired build",
       "build:prod": "env-cmd -e production npm run build",
       "build:staging": "env REACT_APP_ENV='STAGING' CI='false' npm run build",
       "check:circular": "madge --circular ./src",
