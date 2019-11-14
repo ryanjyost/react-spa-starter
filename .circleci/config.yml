@@ -87,13 +87,13 @@ workflows:
 #                - /bug-.*/
       - deploy-staging:
           requires:
-            - test-cypress
+#            - test-cypress
           filters:
             branches:
               only: staging
       - deploy-prod:
           requires:
-            - test-cypress # don't deploy unless tests pass
+#            - test-cypress # don't deploy unless tests pass
           filters:
             branches:
               only: master
