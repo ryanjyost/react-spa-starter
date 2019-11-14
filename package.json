@@ -12,6 +12,7 @@
       "cypress:circleci": "start-server-and-test start http://localhost:3000 test",
       "cypress:open": "cypress open",
       "cypress:report": "npm run reports:combine && npm run reports:html",
+      "deploy": "npm run build && npm run upload",
       "deploy:prod": "npm run build:prod && npm run upload:prod",
       "provision:s3_basic": "env-cmd -e production node ./scripts/provision__s3_basic",
       "provision:s3_basic_with_staging": "aws cloudformation deploy --template-file ./.cloudformation/s3_basic_with_staging.yml --stack-name s3-basic-with-staging --parameter-overrides RootBucketName=react-spa-starter",
@@ -24,8 +25,9 @@
       "start:staging": "env-cmd -e staging npm start",
       "start:production": "env-cmd -e production npm start",
       "test": "react-scripts test",
+      "upload": "node ./scripts/upload",
       "upload:staging": "aws s3 sync build/ s3://staging.react-spa-starter.com --delete",
-      "upload:prod": "env-cmd -e production node ./scripts/upload__production"
+      "upload:prod": "env-cmd -e production node ./scripts/upload"
    },
    "dependencies": {
       "antd": "3.24.3",
