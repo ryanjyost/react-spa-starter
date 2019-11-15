@@ -15,18 +15,16 @@ Resources:
         IndexDocument: index.html
         ErrorDocument: index.html
     DeletionPolicy: Retain
+
   StagingBucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: !Join
-        - ''
-        - - 'staging.'
-          - !Ref RootBucketName
+        BucketName: !Join ['', ['staging.', !Ref RootBucketName]]
         AccessControl: PublicRead
         WebsiteConfiguration:
           IndexDocument: index.html
           ErrorDocument: index.html
-      DeletionPolicy: Retain
+
   ProductionBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
@@ -39,11 +37,8 @@ Resources:
             Effect: Allow
             Principal: '*'
             Action: 's3:GetObject'
-            Resource: !Join
-              - ''
-              - - 'arn:aws:s3:::'
-                - !Ref ProdBucket
-                - /*
+            Resource: !Join ['', ['arn:aws:s3:::', !Ref ProdBucket, /*]]
+
   StagingBucketPolicy:
       Type: AWS::S3::BucketPolicy
       Properties:
@@ -56,11 +51,7 @@ Resources:
               Effect: Allow
               Principal: '*'
               Action: 's3:GetObject'
-              Resource: !Join
-                - ''
-                - - 'arn:aws:s3:::'
-                  - !Ref StagingBucket
-                  - /*
+              Resource: !Join ['', ['arn:aws:s3:::', !Ref StagingBucket, /*]]
 
 Outputs:
   WebsiteURL:
@@ -68,11 +59,3 @@ Outputs:
       - ProdBucket
       - WebsiteURL
     Description: URL for website hosted on S3
-#  S3BucketSecureURL:
-#    Value: !Join
-#      - ''
-#      - - 'https://'
-#        - !GetAtt
-#          - ProdBucket
-#          - DomainName
-#    Description: Name of S3 bucket to hold website content

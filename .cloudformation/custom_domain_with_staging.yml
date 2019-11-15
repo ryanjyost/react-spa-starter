@@ -1,9 +1,6 @@
 # Shout out to sjevs's cloudformation template
 AWSTemplateFormatVersion: 2010-09-09
 
-######################
-# Parameters
-######################
 Parameters:
   DomainName:
     Type: String
@@ -20,16 +17,9 @@ Parameters:
     Description: the Amazon Resource Name (ARN) of an AWS Certificate Manager (ACM) certificate.
     AllowedPattern: "arn:aws:acm:.*"
 
-######################
-# RESOURCES
-######################
 Resources:
-
-  ######################
-  # BUCKETS
   ProdBucket:
     Type: AWS::S3::Bucket
-    #DeletionPolicy: Retain
     Properties:
       BucketName: !Ref DomainName
       AccessControl: PublicRead
@@ -39,7 +29,6 @@ Resources:
 
   StagingBucket:
       Type: AWS::S3::Bucket
-      #DeletionPolicy: Retain
       Properties:
         BucketName: !Join ['', ['staging.', !Ref DomainName]]
         AccessControl: PublicRead
@@ -47,11 +36,8 @@ Resources:
           IndexDocument: index.html
           ErrorDocument: index.html
 
-  ######################
-  # Policies
   ProductionBucketPolicy:
     Type: AWS::S3::BucketPolicy
-    #DeletionPolicy: Retain
     Properties:
       Bucket: !Ref ProdBucket
       PolicyDocument:
@@ -66,7 +52,6 @@ Resources:
 
   StagingBucketPolicy:
       Type: AWS::S3::BucketPolicy
-      #DeletionPolicy: Retain
       Properties:
         Bucket: !Ref StagingBucket
         PolicyDocument:
@@ -79,11 +64,8 @@ Resources:
               Action: 's3:GetObject'
               Resource: !Join ['', ['arn:aws:s3:::', !Ref StagingBucket, /*]]
 
-  ######################
-  # CloudFront Distributions
   ProductionCloudFront:
       Type: AWS::CloudFront::Distribution
-      #DeletionPolicy: Retain
       DependsOn:
       - ProdBucket
       Properties:
@@ -123,7 +105,6 @@ Resources:
 
   StagingCloudFront:
       Type: AWS::CloudFront::Distribution
-      #DeletionPolicy: Retain
       DependsOn:
       - StagingBucket
       Properties:
@@ -160,11 +141,8 @@ Resources:
             ResponseCode: 200
             ResponsePagePath: /index.html
 
-  ######################
-  # DNS Records
   ProductionWWWDNS:
       Type: AWS::Route53::RecordSetGroup
-      #DeletionPolicy: Retain
       Properties:
         HostedZoneName: !Join ['', [!Ref 'DomainName', .]]
         RecordSets:
@@ -176,7 +154,6 @@ Resources:
 
   ProductionDNS:
       Type: AWS::Route53::RecordSetGroup
-      #DeletionPolicy: Retain
       Properties:
         HostedZoneName: !Join ['', [!Ref 'DomainName', .]]
         RecordSets:
@@ -188,7 +165,6 @@ Resources:
 
   StagingDNS:
       Type: AWS::Route53::RecordSetGroup
-      #DeletionPolicy: Retain
       Properties:
         HostedZoneName: !Join ['', [!Ref 'DomainName', .]]
         RecordSets:
@@ -198,9 +174,6 @@ Resources:
             HostedZoneId: Z2FDTNDATAQYW2
             DNSName: !GetAtt [StagingCloudFront, DomainName]
 
-######################
-# Outputs
-######################
 Outputs:
   WebsiteURL:
     Value: !GetAtt

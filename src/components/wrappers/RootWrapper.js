@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import { withRouter } from 'react-router-dom';
 import { Layout, message, BackTop } from 'antd';
 import { ErrorBoundary } from '../hoc';
 import { ErrorPage } from '../pages';
+import { $env, $envDisplay } from '../../config';
 
 class RootWrapper extends React.Component {
    componentDidUpdate(prevProps) {
@@ -29,8 +31,11 @@ class RootWrapper extends React.Component {
                justifyContent: 'center',
                alignItems: 'center'
             }}>
+            <Helmet>
+               <title>{$env === 'PRODUCTION' ? 'React SPA Starter' : `${$envDisplay} - React SPA Starter`}</title>
+            </Helmet>
             <ErrorBoundary renderError={ErrorPage}>{this.props.children}</ErrorBoundary>
-            <BackTop/>
+            <BackTop />
          </Layout>
       );
    }
@@ -47,7 +52,4 @@ const mapDispatchToProps = dispatch => {
    return {};
 };
 
-export default connect(
-   mapStateToProps,
-   mapDispatchToProps
-)(withRouter(RootWrapper));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(RootWrapper));

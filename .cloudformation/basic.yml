@@ -1,6 +1,7 @@
 # Create an S3 Bucket that hosts a React app
 AWSTemplateFormatVersion: 2010-09-09
 
+# params passed to "--parameter-overrides" in CLI
 Parameters:
   BucketName:
     Description: Unique name for your bucket. This will be in the S3 url to your React app.
@@ -8,32 +9,31 @@ Parameters:
 
 Resources:
   # Create an S3 Bucket that serves a static website (i.e. React app)
-  Bucket:
+  MyBucket:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Ref BucketName
       AccessControl: PublicRead # visitors need to be able to access the sie
       WebsiteConfiguration: # this makes the S3 Bucket a static website/app
-        IndexDocument: index.html
-        ErrorDocument: index.html # let React handle errors and routing
-    DeletionPolicy: Retain
+        IndexDocument: index.html # default object served when visiting S3 domain
+        ErrorDocument: index.html # just send to app, let React handle errors and routing
 
-  # Add a Bucket Policy that lets visitors access the web app
-  BucketPolicy:
+  # Add a Bucket Policy that lets public visitors access the web app
+  MyBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref Bucket
+      Bucket: !Ref MyBucket # attach to bucket being created
       PolicyDocument:
         Id: MyPolicy
         Version: 2012-10-17
-        Statement: # lets users access/view the contents of your Bucket, i.e. web app
+        Statement: # lets the public access/view the contents of your Bucket, i.e. web app
           - Sid: PublicReadForGetBucketObjects
             Effect: Allow
-            Principal: '*'
+            Principal: '*' # wildcard, allow all requests
             Action: 's3:GetObject'
-            Resource: !Join ['', ['arn:aws:s3:::', !Ref Bucket, /*]]
+            Resource: !Join ['', ['arn:aws:s3:::', !Ref MyBucket, /*]]
 
 Outputs:
   WebsiteURL:
-    Value: !GetAtt Bucket.WebsiteURL
+    Value: !GetAtt MyBucket.WebsiteURL
     Description: URL for website hosted on S3
