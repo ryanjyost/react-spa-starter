@@ -53,7 +53,7 @@ jobs:
       - run: aws --version
       - run: aws s3 ls
 
-      - run: npm run deploy
+      - run: npm run deploy:prod
 
 ############################
 workflows:
