@@ -14,5 +14,5 @@ config = { ...config, ...process.env };
 // Config variables
 export const $env = env;
 export const $envDisplay = config.envDisplay;
-export const $ApiBaseUrl = config.REACT_APP_ApiBaseUrl;
+export const $ApiBaseUrl = config.REACT_APP_ApiBaseUrl || 'https://dog.ceo/api';
 export const $ClientUrl = config.REACT_APP_ClientUrl;
