@@ -33,7 +33,7 @@ jobs:
       - run: aws --version
       - run: aws s3 ls
 
-      - run: npm run deploy:staging
+      - run: env REACT_APP_ENV='STAGING' npm run deploy
 
   # Deploy to the production S3 bucket
   deploy-prod:
@@ -53,7 +53,7 @@ jobs:
       - run: aws --version
       - run: aws s3 ls
 
-      - run: npm run deploy:prod
+      - run: env REACT_APP_ENV='PRODUCTION' npm run deploy
 
 ############################
 workflows:
