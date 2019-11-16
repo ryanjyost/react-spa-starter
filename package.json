@@ -12,9 +12,8 @@
       "cypress:circleci": "start-server-and-test start http://localhost:3000 cypress",
       "cypress:open": "cypress open",
       "cypress:report": "npm run reports:combine && npm run reports:html",
-      "deploy": "npm run build && npm run upload",
-      "deploy:prod": "env-cmd -e production npm run build:prod && npm run upload:prod",
-      "deploy:staging": "env-cmd -e staging npm run build:staging && npm run upload:staging",
+      "deploy:prod": "env-cmd -e common,production npm run build:prod && npm run upload:prod",
+      "deploy:staging": "env-cmd -e common,staging npm run build:staging && npm run upload:staging",
       "deps:clear": "rm -rf node_modules/",
       "provision:basic": "env-cmd -e common node ./scripts/provision__basic",
       "provision:basic_with_staging": "env-cmd -e common node ./scripts/provision__basic_with_staging",
@@ -30,8 +29,8 @@
       "start:staging": "env-cmd -e common,staging npm start",
       "test": "react-scripts test",
       "upload": "node ./scripts/upload_bucket",
-      "upload:staging": "env-cmd -e staging node ./scripts/upload_bucket",
-      "upload:prod": "env-cmd -e production node ./scripts/upload_bucket"
+      "upload:staging": "env-cmd -e common,staging node ./scripts/upload_bucket",
+      "upload:prod": "env-cmd -e common,production node ./scripts/upload_bucket"
    },
    "dependencies": {
       "@mdx-js/mdx": "^1.5.1",
