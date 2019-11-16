@@ -28,9 +28,9 @@
       "start:prod": "env-cmd -e common,production npm start",
       "start:staging": "env-cmd -e common,staging npm start",
       "test": "react-scripts test",
-      "upload": "node ./scripts/upload",
-      "upload:staging": "env-cmd -e staging node ./scripts/upload",
-      "upload:prod": "env-cmd -e production node ./scripts/upload"
+      "upload": "node ./scripts/upload_bucket",
+      "upload:staging": "env-cmd -e staging node ./scripts/upload_bucket",
+      "upload:prod": "env-cmd -e production node ./scripts/upload_bucket"
    },
    "dependencies": {
       "@mdx-js/mdx": "^1.5.1",
