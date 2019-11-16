@@ -10,7 +10,8 @@ import { RootWrapper } from './components/wrappers';
 import { RootRouteComponentWithSubRoutes } from './components/routes';
 import './styles/css/index.css';
 
-console.log('ENV VARS', process.env);
+console.log('ENV', process.env.REACT_APP_ENV);
+console.log("Deployment Check", 1);
 
 const { store, persistor } = configureStore();
 

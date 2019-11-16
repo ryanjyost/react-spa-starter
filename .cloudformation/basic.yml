@@ -1,8 +1,10 @@
 # Create an S3 Bucket that hosts a React app
+# Use AWS CLI to execute the file like the below snippet
+# aws cloudformation deploy --template-file ./cloudformation_basic.yml --stack-name basic --parameter-overrides BucketName=<BUCKET_NAME>
+
 AWSTemplateFormatVersion: 2010-09-09
 
-# params passed to "--parameter-overrides" in CLI
-Parameters:
+Parameters: # params passed to "--parameter-overrides" in CLI
   BucketName:
     Description: Unique name for your bucket. This will be in the S3 url to your React app.
     Type: String
