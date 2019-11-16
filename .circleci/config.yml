@@ -71,22 +71,22 @@ workflows:
   version: 2
   test-build-deploy:
     jobs:
-#      - test-cypress:
-#          filters:
-#            branches:
-#              ignore: # only test pushes/pulls to staging and master
-#                - develop
-#                - /feature-.*/
-#                - /bug-.*/
+      - test-cypress:
+          filters:
+            branches:
+              ignore: # only test pushes/pulls to staging and master
+                - develop
+                - /feature-.*/
+                - /bug-.*/
       - deploy-staging:
           requires:
-#            - test-cypress
+            - test-cypress
           filters:
             branches:
               only: staging
       - deploy-prod:
           requires:
-#            - test-cypress # don't deploy unless tests pass
+            - test-cypress # don't deploy unless tests pass
           filters:
             branches:
               only: master
