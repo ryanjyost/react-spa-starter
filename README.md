@@ -43,8 +43,8 @@ ___
 2. Copy the `.env-cmdrc.default.js` file and name the new file `.env-cmdrc.js`. This file will house all your secret and AWS environment variables.
 3. Add a unique `BUCKET_NAME` to the `common` section of your `.env-cmdrc.js` file.
 4. Create an S3 Bucket that will host your React app by running `npm run provision:basic` in your terminal.
-5. Verify that the S3 Bucket was created in the [CloudFormation](https://console.aws.amazon.com/cloudformation) of
-   the AWS Console. The CloudFormation stack "basic" should have a `CREATE_COMPLETE` status.
+5. Verify that the S3 Bucket was created in the [CloudFormation](https://console.aws.amazon.com/cloudformation) 
+section of the AWS Console. The CloudFormation stack "basic" should have a `CREATE_COMPLETE` status.
 6. Build and upload your app by running `npm run deploy:prod`
 7. Visit the public URL of your S3 bucket _(Find in AWS Console -> S3 -> Bucket -> Properties -> Static website
    hosting ->
@@ -94,16 +94,17 @@ Bash scripts that are too big for just declaring in `package.json` or ones that 
 
 #### `src`
 
-Pretty much everything that will change regularly is in the **`src`** directory.<br /><br />
-**`index.js`** => Where the app hooks into the DOM and top-level pieces are set up.<br /><br />
-**`assets`** => Supplementary files like images, pdfs, spreadsheets, etc.<br /><br />
-**`components`** => Basically anything that's React related (incl. hooks).<br /><br />
-**`config`** => Environment configuration options and management for app variables/settings.<br /><br />
-**`helpers`** => Any utility functions, modules, etc. Folder for misfit code.<br /><br />
-**`routes`** => React Router structure and configuration (mapping routes to components, etc.).<br /><br />
-**`store`** => Store configuration, Redux and Redux Saga.<br /><br />
-**`styles`** => Traditional stylesheets, global style variables and `react-responsive` settings.<br /><br />
-**`tests`** => Unit tests.
+Pretty much everything that will change regularly is in the **`src`** directory.<br />
+**`index.js`** => Where the app hooks into the DOM and top-level pieces are set up.<br />
+**`/assets`** => Supplementary files like images, pdfs, spreadsheets, etc.<br />
+**`/components`** => Basically anything that's React related (incl. hooks).<br />
+**`/config`** => Environment configuration options and management for app variables/settings.<br />
+**`/helpers`** => Any utility functions, modules, etc. Folder for misfit code.<br />
+**`/routes`** => React Router structure and configuration (mapping routes to components, etc.).<br />
+**`/services`** => Modules and libraries, e.g. external API interfaces.<br />
+**`/store`** => Store configuration, Redux and Redux Saga.<br />
+**`/styles`** => Traditional stylesheets, global style variables and `react-responsive` settings.<br />
+**`/tests`** => Unit tests.
 
 ___
 
