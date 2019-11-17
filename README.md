@@ -9,9 +9,13 @@ and provide code that can be easily renamed/repurposed for a new project.
 
 ___
 ## Table of Contents
+- **[Features](#features)**
+- **[Quick Start Guides](#quick-start-guides)**
+    - [Set up the project](#set-up-the-project)
+    - [Deploy to an AWS S3 Bucket](#deploy-to-an-aws-s3-bucket)
+    - [Add continuous integration/delivery](#add-continuous-integration/delivery)
+- **[Testing](#testing)**
 ___
-[Testing](#testing)
-
 
 ## Features
 ___
