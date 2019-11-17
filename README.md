@@ -95,16 +95,16 @@ Bash scripts that are too big for just declaring in `package.json` or ones that 
 #### `src`
 
 Pretty much everything that will change regularly is in the **`src`** directory.<br />
-**`index.js`** => Where the app hooks into the DOM and top-level pieces are set up.<br />
-**`/assets`** => Supplementary files like images, pdfs, spreadsheets, etc.<br />
-**`/components`** => Basically anything that's React related (incl. hooks).<br />
-**`/config`** => Environment configuration options and management for app variables/settings.<br />
-**`/helpers`** => Any utility functions, modules, etc. Folder for misfit code.<br />
-**`/routes`** => React Router structure and configuration (mapping routes to components, etc.).<br />
-**`/services`** => Modules and libraries, e.g. external API interfaces.<br />
-**`/store`** => Store configuration, Redux and Redux Saga.<br />
-**`/styles`** => Traditional stylesheets, global style variables and `react-responsive` settings.<br />
-**`/tests`** => Unit tests.
+- **`index.js`** => Where the app hooks into the DOM and top-level pieces are set up.<br />
+- **`/assets`** => Supplementary files like images, pdfs, spreadsheets, etc.<br />
+- **`/components`** => Basically anything that's React related (incl. hooks).<br />
+- **`/config`** => Environment configuration options and management for app variables/settings.<br />
+- **`/helpers`** => Any utility functions, modules, etc. Folder for misfit code.<br />
+- **`/routes`** => React Router structure and configuration (mapping routes to components, etc.).<br />
+- **`/services`** => Modules and libraries, e.g. external API interfaces.<br />
+- **`/store`** => Store configuration, Redux and Redux Saga.<br />
+- **`/styles`** => Traditional stylesheets, global style variables and `react-responsive` settings.<br />
+- **`/tests`** => Unit tests.
 
 ___
 
@@ -145,6 +145,7 @@ ___
 ## Testing
 
 ### Unit Testing
+TODO
 
 ### End-to-end Testing
 This project uses [Cypress](https://www.cypress.io/) for its E2E testing. Their docs and guides, as well as GitHub issue threads,
