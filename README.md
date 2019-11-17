@@ -14,7 +14,7 @@ and provide code that can be easily renamed/repurposed for a new project.
 1. Make sure you have modern versions of Node (>= 10.16.0) and npm (>= 6.9.0). Using [nvm](https://github.com/nvm-sh/nvm) makes life easy.
 2. Clone this repo with `git clone https://github.com/ryanjyost/react-spa-starter.git <YOUR_PROJECT_NAME>`
 3. `cd <YOUR_PROJECT_NAME>`
-4. Run `npm run setup`
+4. Run `npm run setup`, which installs dependencies and starts the app.
 5. You should see the app open up in your browser at `http://localhost:3000`.
 
 #### Deploy to an AWS S3 Bucket
@@ -30,7 +30,9 @@ and provide code that can be easily renamed/repurposed for a new project.
    hosting ->
    Endpoint)_ to see the deployed app
 
-## Project Overview & Structure
+## Project Features
+
+## Folder Structure
 
 #### `.circleci`
 
@@ -71,52 +73,37 @@ Pretty much everything that will change regularly is in the **`src`** directory.
 
 ## Configuration
 
+**Note: create-react-app requires that environment variables begin with `REACT_APP_`, e.g. `REACT_APP_SecretKey` if used within the app!**
+
 There are a few tools and methods in this app that help to make environment configuration and management easy.
 
-#### `.env-cmdrc.js`
-To set your own private, non-committed environment variables, copy the `.env-cmdrc.default.js` file and name the new 
+### `.env-cmdrc.js`
+
+To set your own private environment variables, copy the `.env-cmdrc.default.js` file and name the new
 file `.env-cmdrc.js`. This file type is supported by [env-cmd](https://github.com/toddbluhm/env-cmd#readme), a package that makes environment stuff pretty easy to manage and leverage.
 
-Each top-level
-property of the object exported
+**TL;DR for `env-cmd` and `.env-cmdrc.js`**<br/>
 
-#### This is for variables that...
+- Each top-level property of the object exported from the `.env-cmdrc.js` is an environment option.
+- To inject environment variables into scripts, prepend the script with `env-cmd -e` and an environment name, e.g. `"build:prod": "env-cmd -e production npm run build"`
+- If you provide a comma-separated list of environment names instead of just one, you can merge multiple configs, 
+with the first listed config being overwritten by the second, etc. This makes using a `common` config object easy, e
+.g. `"build:prod": "env-cmd -e common,production npm run build"`
 
--  can't be committed to even a private repository b/c they are too secret (not terribly common in frontend)
--  are specific to each development environment, a.k.a. different across developers working on this project
--  need to be used in bash scripts, like those for provisioning AWS resources and deploying to AWS.
+### `/src/config`
 
 All environment configuration options for the app funnel through `/src/config/index.js`. The proper configuration is selected based on the `REACT_APP_ENV` (CRA's `NODE_ENV` is always production when built and deployed, so we need our own).
 
-In `/src/config/index.js`, you can pass through environment variables declared in `.env-cmdrc.js` or those
+In `/src/config/index.js`, you can pass through environment variables declared in `.env-cmdrc.js` or
 non-sensitive ones declared in `/src/config/env.js`
 
-There are multiple ways to inject and manage environment variables in this project.
+#### Other options
 
-### `src/config`
+Of course, you can manage environment config stuff any way you want, in any combination. Here's a few other common methods...
 
-Here
-
-Non-sensitive information can be hardcoded in their respective config objects, while any environment variables can simply be passed through. See the boilerplate for an example.
-
-### `.env.<environment>` files
-
-#### _Things to note..._
-
--  To help folks setting up their own instance of your project, there's a `.env.default` file to act as a template for developer-specific `.env` files
--  CRA requires that environment variables begin with `REACT_APP_`, e.g. `REACT_APP_SecretKey`
-
-### Command line overrides
-
-Any script in `package.json` can have an environment variable explicitly set. Here's an example...
-
-```
-"scripts": {
-    "deploy:prod": "env REACT_APP_ENV='PRODUCTION' npm run build"
-}
-```
-
-For more complex methods (i.e. different `.env` files for different environments), check out package [env-cmd](https://www.npmjs.com/package/env-cmd), which comes installed in this project.
+-  Any script in `package.json` can have an environment variable explicitly set, .e.g.<br/> `"deploy:prod": "env 
+REACT_APP_ENV='PRODUCTION' npm run build"`
+- `.env` files
 
 ## Core Dependencies
 
