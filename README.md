@@ -8,6 +8,10 @@ this project also implements some basic functionality that's meant to illustrate
 and provide code that can be easily renamed/repurposed for a new project.
 
 ___
+## Table of Contents
+___
+[Features]()
+
 
 ## Features
 ___
