@@ -7,50 +7,99 @@ In addition to having common dependencies and architectural features that will b
 this project also implements some basic functionality that's meant to illustrate how everything actually works together
 and provide code that can be easily renamed/repurposed for a new project.
 
-## Quick Start
+## Quick Start Guides
+
+#### Set up the project
 
 1. Make sure you have modern versions of Node (>= 10.16.0) and npm (>= 6.9.0). Using [nvm](https://github.com/nvm-sh/nvm) makes life easy.
 2. Clone this repo with `git clone https://github.com/ryanjyost/react-spa-starter.git <YOUR_PROJECT_NAME>`
 3. `cd <YOUR_PROJECT_NAME>`
 4. Run `npm run setup`
+5. You should see the app open up in your browser at `http://localhost:3000`.
 
-You should see the app open up in your browser at `http://localhost:3000`.
+#### Deploy to an AWS S3 Bucket
 
-## Folder Structure
+1. [Setup an AWS account and the AWS CLI](https://www.ryanjyost.com/setup-aws-cli/)
+2. Copy the `.env-cmdrc.default.js` file and name the new file `.env-cmdrc.js`. This file will house all your secret and AWS environment variables.
+3. Add a unique `BUCKET_NAME` to the `common` section of your `.env-cmdrc.js` file.
+4. Create an S3 Bucket that will host your React app by running `npm run provision:basic` in your terminal.
+5. Verify that the S3 Bucket was created in the [CloudFormation](https://console.aws.amazon.com/cloudformation) of
+   the AWS Console. The CloudFormation stack "basic" should have a `CREATE_COMPLETE` status.
+6. Build and upload your app by running `npm run deploy:prod`
+7. Visit the public URL of your S3 bucket _(Find in AWS Console -> S3 -> Bucket -> Properties -> Static website
+   hosting ->
+   Endpoint)_ to see the deployed app
+
+## Project Overview & Structure
+
+#### `.circleci`
+
+Configuration needed for CI/CD using [CircleCI](https://circleci.com/)
+
+#### `.cloudformation`
+
+CloudFormation templates to easily provision AWS resources that can host a React app.
+
+#### `build`
+
+The files generated from `create-react-app`'s `build` script. This folder is what is uploaded to an S3 Bucket for static site hosting.
+
+#### `cypress`
+
+Anything related to the end-to-end testing library [Cypress](https://www.cypress.io/).
+
+#### `public`
+
+Static assets like your app's `index.html` file, images, icons, etc.
+
+#### `scripts`
+
+Bash scripts that are too big for just declaring in `package.json` or ones that require secret environment variables.
+
+#### `src`
 
 Pretty much everything that will change regularly is in the **`src`** directory.<br /><br />
 **`index.js`** => Where the app hooks into the DOM and top-level pieces are set up.<br /><br />
 **`assets`** => Supplementary files like images, pdfs, spreadsheets, etc.<br /><br />
-**`components`** => Basically anything that's a React component (HOCs too).<br /><br />
+**`components`** => Basically anything that's React related (incl. hooks).<br /><br />
 **`config`** => Environment configuration options and management for app variables/settings.<br /><br />
 **`helpers`** => Any utility functions, modules, etc. Folder for misfit code.<br /><br />
 **`routes`** => React Router structure and configuration (mapping routes to components, etc.).<br /><br />
 **`store`** => Store configuration, Redux and Redux Saga.<br /><br />
 **`styles`** => Traditional stylesheets, global style variables and `react-responsive` settings.<br /><br />
-
-For a foundational understanding of the project's origins, read about [CRA's folder structure](https://create-react-app.dev/docs/folder-structure).
-
-For details on the **`tests`** directory, check out the [testing](#testing) section of these docs.
+**`tests`** => Unit tests.
 
 ## Configuration
 
-All environment configuration options funnel through `/src/config/index.js`.
+There are a few tools and methods in this app that help to make environment configuration and management easy.
 
-There are multiple ways to inject and manage environment variables in this project.
+#### `.env-cmdrc.js`
+To set your own private, non-committed environment variables, copy the `.env-cmdrc.default.js` file and name the new 
+file `.env-cmdrc.js`. This file type is supported by [env-cmd](https://github.com/toddbluhm/env-cmd#readme), a package that makes environment stuff pretty easy to manage and leverage.
 
-### `src/config`
-
-Here the proper configuration is selected based on the `REACT_APP_ENV` (CRA's `NODE_ENV` is always production when built and deployed, so we need our own).
-
-Non-sensitive information can be hardcoded in their respective config objects, while any environment variables can simply be passed through. See the boilerplate for an example.
-
-### `.env.<environment>` files
+Each top-level
+property of the object exported
 
 #### This is for variables that...
 
 -  can't be committed to even a private repository b/c they are too secret (not terribly common in frontend)
 -  are specific to each development environment, a.k.a. different across developers working on this project
--  need to be used in scripts 
+-  need to be used in bash scripts, like those for provisioning AWS resources and deploying to AWS.
+
+All environment configuration options for the app funnel through `/src/config/index.js`. The proper configuration is selected based on the `REACT_APP_ENV` (CRA's `NODE_ENV` is always production when built and deployed, so we need our own).
+
+In `/src/config/index.js`, you can pass through environment variables declared in `.env-cmdrc.js` or those
+non-sensitive ones declared in `/src/config/env.js`
+
+There are multiple ways to inject and manage environment variables in this project.
+
+### `src/config`
+
+Here
+
+Non-sensitive information can be hardcoded in their respective config objects, while any environment variables can simply be passed through. See the boilerplate for an example.
+
+### `.env.<environment>` files
 
 #### _Things to note..._
 
@@ -113,7 +162,7 @@ Before any deployment, you need to run the build script for the particular envir
 **Here's some links that were helpful**
 [Deploying create-react-app to S3 and CloudFront](https://medium.com/@wolovim/deploying-create-react-app-to-s3-or-cloudfront-48dae4ce0af)
 
- --parameter-overrides RootBucketName=react-spa-starter
+--parameter-overrides RootBucketName=react-spa-starter
 
 ## Testing
 

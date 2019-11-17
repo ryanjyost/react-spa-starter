@@ -3,7 +3,8 @@ These are non-secret environment configs
  */
 
 const common = {
-   apiUrl: process.env.REACT_APP_ApiBaseUrl
+   apiUrl: process.env.REACT_APP_ApiBaseUrl || 'https://dog.ceo/api',
+   clientUrl: process.env.REACT_APP_ClientUrl || 'http://localhost:3000'
 };
 
 const LOCAL = {
