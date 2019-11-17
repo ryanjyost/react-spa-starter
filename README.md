@@ -16,10 +16,11 @@ ___
     - [Add CircleCI Pipeline](#add-circleci-pipeline)
 - **[Folder Structure](#folder-structure)**
 - **[Environment Configuration](#environment-configuration)**
+- **[Testing](#testing)**
 - **[Core Dependencies](#core-dependencies)**
 - **[Commands](#commands)**
 - **[Build & Deployment](#build-&-deployment)**
-- **[Testing](#testing)**
+- **[Provisioning](#build-&-deployment)**
 - **[Miscellaneous](#miscellaneous)**
 ___
 
@@ -139,6 +140,23 @@ Of course, you can manage environment config stuff any way you want, in any comb
 -  Any script in `package.json` can have an environment variable explicitly set, .e.g.<br/> `"deploy:prod": "env REACT_APP_ENV='PRODUCTION' npm run build"`
 -  `.env` files
 ___
+
+## Testing
+
+### Unit Testing
+
+### End-to-end Testing
+This project uses [Cypress](https://www.cypress.io/) for its E2E testing. Their docs and guides, as well as GitHub issue threads,
+are fantastic so consult those when unsure of something.
+Cypress comes with a great GUI to help write new tests, debugging and watching the test scripts run in an actual Chrome browser.
+
+To open the GUI and run tests in a visible browser, run `npm run cypress`.
+
+To run the test suite in headless mode and generate raw results, run `npm run test`.
+
+Once the test suite completes, run `npm run test:report` for a nice HTML report.
+___
+
 ## Core Dependencies
 
 Here's an overview of this project's major dependencies and what they are for. Obviously forks of this boilerplate can stray from the core out-of-the-box dependencies and libraries,
@@ -185,21 +203,11 @@ ___
 
 TODO
 ___
-## Testing
+## Provisioning
 
-### Unit Testing
-
-### End-to-end Testing
-This project uses [Cypress](https://www.cypress.io/) for its E2E testing. Their docs and guides, as well as GitHub issue threads,
-are fantastic so consult those when unsure of something.
-Cypress comes with a great GUI to help write new tests, debugging and watching the test scripts run in an actual Chrome browser.
-
-To open the GUI and run tests in a visible browser, run `npm run cypress`.
-
-To run the test suite in headless mode and generate raw results, run `npm run test`.
-
-Once the test suite completes, run `npm run test:report` for a nice HTML report.
+TODO
 ___
+
 ## Miscellaneous
 
 **Add gotchas and insights here as needed**
