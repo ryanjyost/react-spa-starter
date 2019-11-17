@@ -13,8 +13,14 @@ ___
 - **[Quick Start Guides](#quick-start-guides)**
     - [Set up the project](#set-up-the-project)
     - [Deploy to an AWS S3 Bucket](#deploy-to-an-aws-s3-bucket)
-    - [Add continuous integration/delivery](#add-continuous-integration/delivery)
+    - [Add CircleCI Pipeline](#add-circleci-pipeline)
+- **[Folder Structure](#folder-structure)**
+- **[Environment Configuration](#environment-configuration)**
+- **[Core Dependencies](#core-dependencies)**
+- **[Commands](#commands)**
+- **[Build & Deployment](#build-&-deployment)**
 - **[Testing](#testing)**
+- **[Miscellaneous](#miscellaneous)**
 ___
 
 ## Features
@@ -43,7 +49,7 @@ ___
    hosting ->
    Endpoint)_ to see the deployed app
 
-### Add continuous integration/delivery
+### Add CircleCI Pipeline
 
 _This project comes with CircleCI just because it's easy and free for public repos._
 
@@ -100,7 +106,7 @@ Pretty much everything that will change regularly is in the **`src`** directory.
 
 ___
 
-## Configuration
+## Environment Configuration
 
 **Note: create-react-app requires that environment variables begin with `REACT_APP_`, e.g. `REACT_APP_SecretKey` if used within the app!**
 
@@ -175,7 +181,7 @@ Check out package.json for the actual code/commands that are executed by these c
 -  **`test`** - Runs the cypress test suite in headless mode and generates raw reports.
 -  **`test:report`** - AFTER running the test suite in headless mode, execute this command to generate a nice HTML report in the `cypress/reports` folder
 ___
-## Deployment
+## Build & Deployment
 
 TODO
 ___
@@ -194,7 +200,7 @@ To run the test suite in headless mode and generate raw results, run `npm run te
 
 Once the test suite completes, run `npm run test:report` for a nice HTML report.
 ___
-## Misc. Things to Note & Keep in Mind
+## Miscellaneous
 
 **Add gotchas and insights here as needed**
 
