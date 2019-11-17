@@ -10,7 +10,7 @@ and provide code that can be easily renamed/repurposed for a new project.
 ___
 ## Table of Contents
 ___
-[Testing](testing)
+[Testing](#testing)
 
 
 ## Features
