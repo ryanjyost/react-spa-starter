@@ -7,6 +7,8 @@ In addition to having common dependencies and architectural features that will b
 this project also implements some basic functionality that's meant to illustrate how everything actually works together
 and provide code that can be easily renamed/repurposed for a new project.
 
+## Why you'd want to fork this for your next React project
+
 ## Quick Start Guides
 
 #### Set up the project
@@ -30,7 +32,20 @@ and provide code that can be easily renamed/repurposed for a new project.
    hosting ->
    Endpoint)_ to see the deployed app
 
-## Project Features
+#### Add continuous integration/delivery
+
+_This project comes with CircleCI just because it's easy and free for public repos._
+
+1. Fork this repository.
+2. Create an account on [CircleCI](https://circleci.com/) and select your forked repo. [See the docs](https://circleci.com/docs/2.0/first-steps/) for more detail.
+3. Go to the settings of your project in the CircleCI dashboard and add any environment variables needed for building
+   and deploying to your S3 Bucket (or other host if you're not using AWS). You'll probably need `AWS_ACCESS_KEY_ID`,
+   `AWS_SECRET_ACCESS_KEY`, `BUCKET_NAME`, and `CI` set to `false` so that warnings from create-react-app's build process don't fail the CircleCI process.
+4. Push an update to master (like a console log you can see in the browser) and check your CircleCI dashboard. If all
+ went well, CircleCI should run two jobs...
+    1. `test-cypress` runs the boilerplate end-to-end tests. And if those pass...
+    2. `deploy-prod` runs unit tests and then builds the app for production and uploads the production build to your 
+    S3 bucket.
 
 ## Folder Structure
 
@@ -147,14 +162,13 @@ Check out package.json for the actual code/commands that are executed by these c
 
 ## Deployment
 
-Before any deployment, you need to run the build script for the particular environment you're deploying to.
-**Here's some links that were helpful**
-[Deploying create-react-app to S3 and CloudFront](https://medium.com/@wolovim/deploying-create-react-app-to-s3-or-cloudfront-48dae4ce0af)
-
---parameter-overrides RootBucketName=react-spa-starter
+TODO
 
 ## Testing
 
+### Unit Testing
+
+### End-to-end Testing
 This project uses [Cypress](https://www.cypress.io/) for its E2E testing. Their docs and guides, as well as GitHub issue threads,
 are fantastic so consult those when unsure of something.
 Cypress comes with a great GUI to help write new tests, debugging and watching the test scripts run in an actual Chrome browser.
