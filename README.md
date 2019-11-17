@@ -1,4 +1,4 @@
-# React SPA Starter
+# React SPA *(Single Page Application)* Starter
 
 The goal of this project is to be a starting point/boilerplate for complex single-page applications
 built using a modern React/Redux stack.
@@ -7,11 +7,14 @@ In addition to having common dependencies and architectural features that will b
 this project also implements some basic functionality that's meant to illustrate how everything actually works together
 and provide code that can be easily renamed/repurposed for a new project.
 
-## Why you'd want to fork this for your next React project
+___
+
+## Features
+
 
 ## Quick Start Guides
 
-#### Set up the project
+### Set up the project
 
 1. Make sure you have modern versions of Node (>= 10.16.0) and npm (>= 6.9.0). Using [nvm](https://github.com/nvm-sh/nvm) makes life easy.
 2. Clone this repo with `git clone https://github.com/ryanjyost/react-spa-starter.git <YOUR_PROJECT_NAME>`
@@ -19,7 +22,7 @@ and provide code that can be easily renamed/repurposed for a new project.
 4. Run `npm run setup`, which installs dependencies and starts the app.
 5. You should see the app open up in your browser at `http://localhost:3000`.
 
-#### Deploy to an AWS S3 Bucket
+### Deploy to an AWS S3 Bucket
 
 1. [Setup an AWS account and the AWS CLI](https://www.ryanjyost.com/setup-aws-cli/)
 2. Copy the `.env-cmdrc.default.js` file and name the new file `.env-cmdrc.js`. This file will house all your secret and AWS environment variables.
@@ -32,7 +35,7 @@ and provide code that can be easily renamed/repurposed for a new project.
    hosting ->
    Endpoint)_ to see the deployed app
 
-#### Add continuous integration/delivery
+### Add continuous integration/delivery
 
 _This project comes with CircleCI just because it's easy and free for public repos._
 
