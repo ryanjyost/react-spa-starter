@@ -10,7 +10,7 @@ and provide code that can be easily renamed/repurposed for a new project.
 ___
 
 ## Features
-
+___
 
 ## Quick Start Guides
 
@@ -49,6 +49,7 @@ _This project comes with CircleCI just because it's easy and free for public rep
     1. `test-cypress` runs the boilerplate end-to-end tests. And if those pass...
     2. `deploy-prod` runs unit tests and then builds the app for production and uploads the production build to your 
     S3 bucket.
+___
 
 ## Folder Structure
 
@@ -89,6 +90,8 @@ Pretty much everything that will change regularly is in the **`src`** directory.
 **`styles`** => Traditional stylesheets, global style variables and `react-responsive` settings.<br /><br />
 **`tests`** => Unit tests.
 
+___
+
 ## Configuration
 
 **Note: create-react-app requires that environment variables begin with `REACT_APP_`, e.g. `REACT_APP_SecretKey` if used within the app!**
@@ -121,7 +124,7 @@ Of course, you can manage environment config stuff any way you want, in any comb
 
 -  Any script in `package.json` can have an environment variable explicitly set, .e.g.<br/> `"deploy:prod": "env REACT_APP_ENV='PRODUCTION' npm run build"`
 -  `.env` files
-
+___
 ## Core Dependencies
 
 Here's an overview of this project's major dependencies and what they are for. Obviously forks of this boilerplate can stray from the core out-of-the-box dependencies and libraries,
@@ -149,6 +152,7 @@ _These are just the notable deps, this list is not exhaustive. Check `package.js
 -  [cypress](https://www.cypress.io/) - End-to-end testing framework.
 -  [react-app-rewired](https://github.com/timarney/react-app-rewired) - Override create-react-app webpack configs without ejecting.
 
+___
 ## Commands
 
 Check out package.json for the actual code/commands that are executed by these commands.
@@ -162,11 +166,11 @@ Check out package.json for the actual code/commands that are executed by these c
 -  **`start`** - Run the app in development.
 -  **`test`** - Runs the cypress test suite in headless mode and generates raw reports.
 -  **`test:report`** - AFTER running the test suite in headless mode, execute this command to generate a nice HTML report in the `cypress/reports` folder
-
+___
 ## Deployment
 
 TODO
-
+___
 ## Testing
 
 ### Unit Testing
@@ -181,7 +185,7 @@ To open the GUI and run tests in a visible browser, run `npm run cypress`.
 To run the test suite in headless mode and generate raw results, run `npm run test`.
 
 Once the test suite completes, run `npm run test:report` for a nice HTML report.
-
+___
 ## Misc. Things to Note & Keep in Mind
 
 **Add gotchas and insights here as needed**
