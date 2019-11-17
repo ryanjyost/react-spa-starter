@@ -20,7 +20,7 @@ ___
 - **[Core Dependencies](#core-dependencies)**
 - **[Commands](#commands)**
 - **[Build & Deployment](#build-&-deployment)**
-- **[Provisioning](#build-&-deployment)**
+- **[Provisioning AWS Resources](#provisioning-aws-resources)**
 - **[Miscellaneous](#miscellaneous)**
 ___
 
@@ -203,7 +203,7 @@ ___
 
 TODO
 ___
-## Provisioning
+## Provisioning AWS Resources
 
 TODO
 ___
