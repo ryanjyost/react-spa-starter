@@ -84,11 +84,11 @@ file `.env-cmdrc.js`. This file type is supported by [env-cmd](https://github.co
 
 **TL;DR for `env-cmd` and `.env-cmdrc.js`**<br/>
 
-- Each top-level property of the object exported from the `.env-cmdrc.js` is an environment option.
-- To inject environment variables into scripts, prepend the script with `env-cmd -e` and an environment name, e.g. `"build:prod": "env-cmd -e production npm run build"`
-- If you provide a comma-separated list of environment names instead of just one, you can merge multiple configs, 
-with the first listed config being overwritten by the second, etc. This makes using a `common` config object easy, e
-.g. `"build:prod": "env-cmd -e common,production npm run build"`
+-  Each top-level property of the object exported from the `.env-cmdrc.js` is an environment option.
+-  To inject environment variables into scripts, prepend the script with `env-cmd -e` and an environment name, e.g. `"build:prod": "env-cmd -e production npm run build"`
+-  If you provide a comma-separated list of environment names instead of just one, you can merge multiple configs,
+   with the first listed config being overwritten by the second, etc. This makes using a `common` config object easy, e
+   .g. `"build:prod": "env-cmd -e common,production npm run build"`
 
 ### `/src/config`
 
@@ -101,9 +101,8 @@ non-sensitive ones declared in `/src/config/env.js`
 
 Of course, you can manage environment config stuff any way you want, in any combination. Here's a few other common methods...
 
--  Any script in `package.json` can have an environment variable explicitly set, .e.g.<br/> `"deploy:prod": "env 
-REACT_APP_ENV='PRODUCTION' npm run build"`
-- `.env` files
+-  Any script in `package.json` can have an environment variable explicitly set, .e.g.<br/> `"deploy:prod": "env REACT_APP_ENV='PRODUCTION' npm run build"`
+-  `.env` files
 
 ## Core Dependencies
 
@@ -116,12 +115,15 @@ _These are just the notable deps, this list is not exhaustive. Check `package.js
 
 -  [antd](https://ant.design/docs/react/introduce) - Component/UI library and styling.
 -  [apisauce](https://ant.design/docs/react/introduce) - Adds some nice syntactic sugar and normalization to axios.
+-  [env-cmd](https://github.com/toddbluhm/env-cmd) - Use environment variables in npm scripts and React app.
 -  [react](https://reactjs.org/) - A JavaScript library for building user interfaces.
+-  [react-redux](https://react-redux.js.org/) - Official React bindings for Redux.
 -  [react-router-dom](https://reacttraining.com/react-router/) - Routing for single page React apps.
 -  [react-responsive](https://github.com/contra/react-responsive) - CSS media queries in react - for responsive design, and more.
 -  [redux](https://redux.js.org/) - State management.
 -  [redux-persist](https://github.com/rt2zz/redux-persist) - Persist and rehydrate a redux store.
 -  [redux-saga](https://github.com/redux-saga/redux-saga) - Handling side effects for Redux apps.
+-  [shelljs](https://github.com/shelljs/shelljs) - Portable Unix shell commands for Node.js.
 
 **Dev Dependencies**
 
