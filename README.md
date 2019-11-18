@@ -19,12 +19,20 @@ ___
 - **[Testing](#testing)**
 - **[Core Dependencies](#core-dependencies)**
 - **[Commands](#commands)**
-- **[Build & Deployment](#build-&-deployment)**
+- **[Build and Deployment](#build-and-deployment)**
 - **[Provisioning AWS Resources](#provisioning-aws-resources)**
 - **[Miscellaneous](#miscellaneous)**
 ___
 
 ## Features
+**All of the benefits of [create-react-app](https://github.com/facebook/create-react-app)**
+Quick setup, hot reloading, simple production builds, modern environment, etc.
+
+<br/>
+
+**State management infrastructure hooked up and ready to go**
+
+
 ___
 
 ## Quick Start Guides
@@ -201,7 +209,7 @@ Check out package.json for the actual code/commands that are executed by these c
 -  **`test`** - Runs the cypress test suite in headless mode and generates raw reports.
 -  **`test:report`** - AFTER running the test suite in headless mode, execute this command to generate a nice HTML report in the `cypress/reports` folder
 ___
-## Build & Deployment
+## Build and Deployment
 
 TODO
 ___
