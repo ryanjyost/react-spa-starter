@@ -222,16 +222,37 @@ Check out package.json for the actual code/commands that are executed by these c
 
 -  **`build`** - Generates a deployable package of files in the `build folder`.
 -  **`build:prod`** - Build your React app to be delpoyed to the production environment
--  **`build:staging`** - Build your React app to be delpoyed to the staging environment<br/>
+-  **`build:staging`** - Build your React app to be delpoyed to the staging environment
 
 -  **`check:circular`** - Prints a list of circular dependencies in the app. CRA makes these a relative non-issue, but good to be aware of.
 -  **`check:deps`** - Get a list of unused dependencies.
 -  **`check:orphans`** - Finds files/components that aren't being imported anywhere in the project.<br/>
--  **`cypress`** - Runs the development GUI for cypress tests.
+
+-  **`cypress`** - Runs Cypress test suite in headless mode.
+-  **`cypress:circleci`** - Special way to start the app and run Cypress tests in CircleCI.
+-  **`cypress:open`** - Opens the Cypress GUI for to run and develop tests.
+-  **`cypress:report`** - Generate a nice HTML report of the results from `npm run cypress`
+
+-  **`deploy`** - Run `build` and `upload` scripts.
+-  **`deploy:prod`** - Run `build` and `upload` scripts for the production environment.
+-  **`deploy:staging`** - Run `build` and `upload` scripts for the staging environment.
+
+-  **`deps:clear`** - Remove your `node_modules` directory, helpful when having weird npm issues.
+
+-  **`provision:basic`** - Create an S3 bucket that can host your React app.
+-  **`provision:basic_with_staging`** - Create staging and production S3 buckets to host your app deployments.
+-  **`provision:custom_domain`** - Creates an S3 Bucket, CloudFront Distribution and DNS records to host your React app at a custom domain (that's registered on AWS).
+-  **`provision:custom_domain_with_staging`** - Creates production and staging S3 Buckets, CloudFront Distributions and DNS records to host your React app at a custom domain (that's registered on AWS) and staging subdomain.
+
 -  **`setup`** - Prep a newly forked project. It installs dependencies and starts the app.
--  **`start`** - Run the app in development.
--  **`test`** - Runs the cypress test suite in headless mode and generates raw reports.
--  **`test:report`** - AFTER running the test suite in headless mode, execute this command to generate a nice HTML report in the `cypress/reports` folder
+-  **`start`** - Run the app. Defaults to "local" environment.
+-  **`start:staging`** - Run the app with staging environment config.
+-  **`start:prod`** - Run the app with production environment config.
+-  **`test`** - Run unit test suite.
+-  **`upload`** - Upload app build to an S3 Bucket.
+-  **`upload:staging`** - Upload app build to your staging bucket
+-  **`upload:prod`** - Upload app build to your production bucket.
+
 ___
 ## Build and Deployment
 
