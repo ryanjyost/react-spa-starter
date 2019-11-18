@@ -31,12 +31,28 @@ See legit examples of implementations and methods that are easily tweaked to fit
 **All of the benefits of [create-react-app](https://github.com/facebook/create-react-app)**<br/>
 Quick setup, hot reloading, simple production builds, modern environment, PWA features, etc.<br/>
 
-**Complex state management infrastructure is ready to go**<br/>
+**Complex state management infrastructureo**<br/>
 Redux is setup to handle multiple sections of a global store. Redux Saga can handle side effects. Redux Persist will save the store properties that you specify across browser sessions.
 
-**Common gotchas**
+**Well architected, scalable routing**<br/>
+Manage your React Router routes in one simlpe config file. Nested and authenticated routing is already taken care of for you.
 
-** **
+**Environment management and configuration is ready to go**<br/>
+Keep track of private variables in a single config file, which is ready to be leveraged in scripts or injected into your React app.
+
+**Testing**<br/>
+Write unit tests in Jest and end-to-end tests with Cypress.
+
+**Deploy to AWS in minutes**<br/>
+
+**Continuous Integration and Delivery**<br/>
+Comes with a CircleCI config file that can get you testing and deploying staging and production branches easily.
+
+
+
+**Common gotchas already taken care of**
+Avoid headaches that come with starting from scratch.
+
 
 
 ___
