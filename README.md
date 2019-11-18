@@ -221,9 +221,12 @@ ___
 Check out package.json for the actual code/commands that are executed by these commands.
 
 -  **`build`** - Generates a deployable package of files in the `build folder`.
--  **`build:<env>`** - Build a deployment package based on the given config. Options are `dev`, `staging`, and `prod`.
+-  **`build:prod`** - Build your React app to be delpoyed to the production environment
+-  **`build:staging`** - Build your React app to be delpoyed to the staging environment<br/>
+
 -  **`check:circular`** - Prints a list of circular dependencies in the app. CRA makes these a relative non-issue, but good to be aware of.
--  **`check:orphans`** - Finds files/components that aren't being imported anywhere in the project.
+-  **`check:deps`** - Get a list of unused dependencies.
+-  **`check:orphans`** - Finds files/components that aren't being imported anywhere in the project.<br/>
 -  **`cypress`** - Runs the development GUI for cypress tests.
 -  **`setup`** - Prep a newly forked project. It installs dependencies and starts the app.
 -  **`start`** - Run the app in development.
