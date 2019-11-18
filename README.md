@@ -31,7 +31,7 @@ See legit examples of implementations and methods that are easily tweaked to fit
 **All of the benefits of [create-react-app](https://github.com/facebook/create-react-app)**<br/>
 Quick setup, hot reloading, simple production builds, modern environment, PWA features, etc.<br/>
 
-**Complex state management infrastructureo**<br/>
+**Complex state management infrastructure**<br/>
 Redux is setup to handle multiple sections of a global store. Redux Saga can handle side effects. Redux Persist will save the store properties that you specify across browser sessions.
 
 **Well architected, scalable routing**<br/>
@@ -48,13 +48,11 @@ Write unit tests in Jest and end-to-end tests with Cypress.
 **Continuous Integration and Delivery**<br/>
 Comes with a CircleCI config file that can get you testing and deploying staging and production branches easily.
 
-
+**Multiple styling options**
+Use traditional stylesheets and CSS in JS. Use responsive-react library to make responsive design simple (a.a. without media queries).
 
 **Common gotchas already taken care of**
 Avoid headaches that come with starting from scratch.
-
-
-
 ___
 
 ## Quick Start Guides
