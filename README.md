@@ -25,12 +25,18 @@ ___
 ___
 
 ## Features
-**All of the benefits of [create-react-app](https://github.com/facebook/create-react-app)**
-Quick setup, hot reloading, simple production builds, modern environment, etc.
+**A real app with simple but non-trivial examples**<br/>
+See legit examples of implementations and methods that are easily tweaked to fit your needs.
 
-<br/>
+**All of the benefits of [create-react-app](https://github.com/facebook/create-react-app)**<br/>
+Quick setup, hot reloading, simple production builds, modern environment, PWA features, etc.<br/>
 
-**State management infrastructure hooked up and ready to go**
+**Complex state management infrastructure is ready to go**<br/>
+Redux is setup to handle multiple sections of a global store. Redux Saga can handle side effects. Redux Persist will save the store properties that you specify across browser sessions.
+
+**Common gotchas**
+
+** **
 
 
 ___
