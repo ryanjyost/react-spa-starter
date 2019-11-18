@@ -34,7 +34,7 @@ Quick setup, hot reloading, simple production builds, modern environment, PWA fe
 **Complex state management infrastructure.**
 Redux is setup to handle multiple sections of a global store. Redux Saga can handle side effects. Redux Persist will save the store properties that you specify across browser sessions.
 
-**Well architected, scalable routing.**
+**Well-architected, scalable routing.**
 Manage your React Router routes in one simlpe config file. Nested and authenticated routing is already taken care of for you.
 
 **Environment management and configuration is ready to go.** 
@@ -50,7 +50,7 @@ Leverage the `./cloudformation` templates to automatically provision AWS resourc
 Comes with a CircleCI config file that can get you testing and deploying staging and production branches easily.
 
 **Multiple styling options.**
-Use traditional stylesheets and CSS in JS. Use responsive-react library to make responsive design simple (a.a. without media queries).
+Use traditional stylesheets and CSS in JS. Use responsive-react library to make responsive design simple (a.k.a. without media queries).
 
 **Common gotchas already taken care of.**
 Avoid headaches that come with starting from scratch.
