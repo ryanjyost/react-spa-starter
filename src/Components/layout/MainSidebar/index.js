@@ -1,0 +1,67 @@
+import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import logo from '../../../Assets/images/logo.svg';
+import { Layout, Menu, Icon } from 'antd';
+import STYLES from '../../../Styles';
+import { useResponsive } from '../../hooks';
+import { AppRoutes } from '../../../Routes';
+import style from './mainSidebar.module.scss';
+const { Sider } = Layout;
+const { SubMenu } = Menu;
+
+function MainSidebar({ isCollapsed, location }) {
+   const isMediumOrSmaller = useResponsive('md');
+
+   return (
+      <Sider
+         className={style.Sider}
+         theme={'light'}
+         trigger={null}
+         collapsible
+         collapsed={isCollapsed}
+         collapsedWidth={isMediumOrSmaller ? 0 : STYLES.collapsedSidebarWidth}>
+         <div
+            className={`logo ${style.logoWrapper} ${
+               isCollapsed ? style.logoWrapperCollapsed : style.logoWrapperExpanded
+            }`}>
+            <img src={logo} alt="logo" className={style.logoImage} />
+            {!isCollapsed && <h1 className={style.title}>React Starter</h1>}
+         </div>
+         <Menu theme="light" mode="inline" selectedKeys={[location.pathname]} className={style.Menu}>
+            {AppRoutes.map((route, i) => displayRoute(route))}
+         </Menu>
+      </Sider>
+   );
+}
+
+export default withRouter(MainSidebar);
+
+// function to be able to recursively loop through Routes
+function displayRoute(route) {
+   if (route.routes && route.showInMainNav) {
+      return (
+         <SubMenu
+            key={route.key}
+            title={
+               <span>
+                  {route.icon && <Icon type={route.icon} />}
+                  <span>{route.title}</span>
+               </span>
+            }>
+            {route.routes.map(r => displayRoute(r))}
+         </SubMenu>
+      );
+   }
+
+   // route can be skipped
+   if (!route.showInMainNav) return null;
+
+   return (
+      <Menu.Item key={route.path}>
+         <Link to={route.path}>
+            {route.icon && <Icon type={route.icon} />}
+            <span>{route.title}</span>
+         </Link>
+      </Menu.Item>
+   );
+}
