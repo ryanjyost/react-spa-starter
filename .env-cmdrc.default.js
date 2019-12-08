@@ -1,6 +1,5 @@
 const STAGING_CF_DIST_ID = 'update_me';
 const PRODUCTION_CF_DIST_ID = 'update_me';
-// Need to match custom domain if using one e.g. react-spa-starter.com
 const STAGING_BUCKET = 'staging_bucket';
 const PRODUCTION_BUCKET = 'prod_bucket';
 
@@ -14,7 +13,8 @@ const env = {
       STAGING_CF_DIST_ID,
       PRODUCTION_CF_DIST_ID,
       STAGING_BUCKET,
-      PRODUCTION_BUCKET
+      PRODUCTION_BUCKET,
+      SASS_PATH: 'node_modules:src'
    },
    local: {
       REACT_APP_ENV: 'local'

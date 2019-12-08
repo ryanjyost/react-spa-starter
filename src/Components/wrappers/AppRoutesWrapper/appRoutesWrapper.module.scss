@@ -1,0 +1,25 @@
+@import 'Styles/variables.scss';
+
+.Layout {
+   width: 100%;
+}
+
+.Content {
+   padding: #{$appHeaderHeight + 20} 0 0 0;
+   margin-left: 0;
+   position: relative;
+   float: left;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   min-height: 100vh;
+}
+
+.sidebarCollapsed {
+   margin-left: $collapsedSidebarWidth;
+}
+
+.sidebarExpanded {
+   margin-left: $expandedSidebarWidth;
+}

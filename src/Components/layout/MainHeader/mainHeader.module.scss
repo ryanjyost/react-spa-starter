@@ -1,0 +1,34 @@
+@import 'Styles/variables.scss';
+
+.Header {
+   background-color: $backgroundColor;
+   position: fixed;
+   z-index: 1;
+   width: 100%;
+   border-bottom: 1px solid $borderBlack;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.noSidebar {
+   padding: 0 20px 0 20px;
+}
+
+.collapsed {
+   padding: 0 20px 0 #{$collapsedSidebarWidth + 20};
+}
+
+.expanded {
+   padding: 0 20px 0 #{$expandedSidebarWidth + 20};
+}
+
+.titleWrapper {
+   display: flex;
+   align-items: center;
+}
+
+.icon {
+   font-size: 18px;
+   margin-right: 10px;
+}
