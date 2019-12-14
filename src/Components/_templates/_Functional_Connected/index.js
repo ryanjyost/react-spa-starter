@@ -1,8 +1,6 @@
-// lib
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// style
 import style from './component.module.scss';
 
 /**
@@ -21,3 +19,9 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CHANGE_ME);
+
+CHANGE_ME.defaultProps = {};
+
+CHANGE_ME.propTypes = {
+   /** Comment prop  */
+};

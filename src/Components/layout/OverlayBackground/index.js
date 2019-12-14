@@ -1,7 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import style from './overlayBackground.module.scss';
 
-// custom overlay background used with MainSidebar on smaller devices
-export default function OverlayBackground({ handleClick }) {
+/**
+ * Custom overlay background used with MainSidebar on smaller devices
+ * @param props
+ * @returns {ReactElement}
+ */
+export default function OverlayBackground(props) {
+   const { handleClick } = props;
    return <div onClick={handleClick} className={style.overlay} />;
 }
+
+OverlayBackground.propTypes = {
+   /** When you click the overlay background */
+   handleClick: PropTypes.func
+};

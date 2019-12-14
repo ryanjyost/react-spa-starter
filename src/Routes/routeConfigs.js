@@ -1,23 +1,6 @@
 import React from 'react';
-import { Login, Dogs, Breeds, BreedDetails } from '../Components/pages';
-import { RootAppComponentWithRoutes, RootRouteComponentWithSubRoutes } from '../Components/routes';
-
-/*******************************
- DEFAULTS
- ********************************/
-const defaultRouteConfig = {
-   title: 'Page',
-   component: ({ location }) => {
-      return (
-         <h1>
-            You need to specify a component for <b>{location.pathname}</b>
-         </h1>
-      );
-   },
-   exact: true,
-   icon: 'question-circle',
-   showInMainNav: true
-};
+import { Login, Dogs, Breeds, BreedDetails } from 'Components/pages';
+import { RootAppComponentWithRoutes, RootRouteComponentWithSubRoutes } from 'Components/routes';
 
 /*******************************
  Configs
@@ -42,7 +25,7 @@ const ROUTES = [
             showInMainNav: true
          },
          {
-            key: 'DOGS',
+            key: 'dogs',
             path: `/app/dogs`,
             title: 'Dogs',
             component: RootRouteComponentWithSubRoutes,

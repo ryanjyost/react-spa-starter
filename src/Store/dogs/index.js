@@ -1,10 +1,12 @@
 import update from 'immutability-helper';
-import Helpers from '../helpers';
-import persist from '../helpers/persist';
+import { createSagaActions } from '../actionGenerators';
+import reduceReducers from '../reduceReducers';
+import persist from '../persist';
 
-/***********************
- STATE
- ***********************/
+/**
+ * Initial state for this section of the store
+ * @type {Object}
+ */
 const InitialState = {
    breeds: [],
    dog: null,
@@ -14,38 +16,20 @@ const InitialState = {
    error: null
 };
 
-/***********************
- ACTIONS
- ***********************/
-const { createSagaActions } = Helpers;
-const getRandomDogs = createSagaActions('GET_RANDOM_DOGS', {
-   request: count => ({ count }),
-   success: response => ({ response }),
-   failure: error => ({ error })
-});
+/**
+ * Get random dogs
+ */
+const getRandomDogs = createSagaActions(
+   'GET_RANDOM_DOGS',
+   {
+      request: count => ({ count }),
+      success: response => ({ response }),
+      failure: error => ({ error })
+   },
+   'dogs'
+);
 
-const getBreeds = createSagaActions('GET_BREEDS', {
-   request: () => ({}),
-   success: response => ({ response }),
-   failure: error => ({ error })
-});
-
-const getDogsByBreed = createSagaActions('GET_DOGS_BY_BREED', {
-   request: (breed, count) => ({ breed, count }),
-   success: (breed, dogs) => ({ breed, dogs }),
-   failure: error => ({ error })
-});
-
-export const actions = {
-   getRandomDogs,
-   getBreeds,
-   getDogsByBreed
-};
-
-/***********************
- REDUCERS
- ***********************/
-function fetchDogReducer(state = InitialState, action) {
+function getRandomDogsReducer(state = InitialState, action) {
    const { payload } = action;
    switch (action.type) {
       case getRandomDogs.types.request:
@@ -76,7 +60,20 @@ function fetchDogReducer(state = InitialState, action) {
    }
 }
 
-function breedsReducer(state = InitialState, action) {
+/**
+ * Get dog breeds
+ */
+const getBreeds = createSagaActions(
+   'GET_BREEDS',
+   {
+      request: () => ({}),
+      success: response => ({ response }),
+      failure: error => ({ error })
+   },
+   'dogs'
+);
+
+function getBreedsReducer(state = InitialState, action) {
    const { payload } = action;
    switch (action.type) {
       case getBreeds.types.request:
@@ -100,7 +97,20 @@ function breedsReducer(state = InitialState, action) {
    }
 }
 
-function dogsByBreedReducer(state = InitialState, action) {
+/**
+ * Get dog breeds
+ */
+const getDogsByBreed = createSagaActions(
+   'GET_DOGS_BY_BREED',
+   {
+      request: (breed, count) => ({ breed, count }),
+      success: (breed, dogs) => ({ breed, dogs }),
+      failure: error => ({ error })
+   },
+   'dogs'
+);
+
+function getDogsByBreedReducer(state = InitialState, action) {
    const { payload } = action;
 
    switch (action.type) {
@@ -137,8 +147,14 @@ function dogsByBreedReducer(state = InitialState, action) {
    }
 }
 
+export const actions = {
+   getRandomDogs,
+   getBreeds,
+   getDogsByBreed
+};
+
 export default persist(
    'dogs',
    ['breeds'], // only breeds will be saved to localStorage
-   Helpers.reduceReducers(InitialState, fetchDogReducer, breedsReducer, dogsByBreedReducer)
+   reduceReducers(InitialState, getRandomDogsReducer, getBreedsReducer, getDogsByBreedReducer)
 );

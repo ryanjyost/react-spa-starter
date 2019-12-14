@@ -1,7 +1,5 @@
-// lib
 import React from 'react';
 import PropTypes from 'prop-types';
-// style
 import style from './component.module.scss';
 
 /**
@@ -10,3 +8,9 @@ import style from './component.module.scss';
 export default function CHANGE_ME({}) {
    return null;
 }
+
+CHANGE_ME.defaultProps = {};
+
+CHANGE_ME.propTypes = {
+   /** Comment prop  */
+};

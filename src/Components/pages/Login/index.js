@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Card, Input, Button } from 'antd';
 import { connect } from 'react-redux';
-import { Actions } from '../../../Store';
 import { Redirect } from 'react-router-dom';
-import { RouteMap } from '../../../Routes';
+import { Actions } from 'Store';
+import { RouteMap } from 'Routes';
+import { $envDisplay } from 'Config';
 import { StackedInputGroup } from '../../forms';
 import { LoadingPageWrapper } from '../../wrappers';
-import { $envDisplay } from '../../../Config';
 import style from './login.module.scss';
+import { Login } from 'Components/pages/index';
 
+/**
+ * Login Screen
+ */
 const LoginScreen = ({ login, isAuthenticated, fetching }) => {
    const [username, updateUsername] = useState('');
    const [password, updatePassword] = useState('');
@@ -70,3 +75,12 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
+
+LoginScreen.propTypes = {
+   /** method to login a user */
+   login: PropTypes.func,
+   /** is user authenticatd? */
+   isAuthenticated: PropTypes.bool,
+   /** is user being logged in? */
+   fetching: PropTypes.bool
+};

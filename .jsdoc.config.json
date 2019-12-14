@@ -1,0 +1,19 @@
+{
+   "source": {
+      "include": "src/",
+      "includePattern": ".js$"
+   },
+   "opts": {
+      "recurse": true,
+      "destination": "docs/html"
+   },
+   "plugins": ["plugins/markdown"],
+   "templates": {
+      "referenceTitle": false,
+      "repository": "https://github.com/ryanjyost/react-spa-starter",
+      "disableSort": true,
+      "organizeByDir": false,
+      "collapse": true,
+      "search": true
+   }
+}

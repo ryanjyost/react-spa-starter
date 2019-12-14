@@ -1,19 +1,5 @@
-import React, { useEffect, useRef } from 'react';
 import _useResponsive from './useResponsive';
-
-// let's us do stuff similar to componentDidUpdate
-export function usePrevious(value) {
-   // The ref object is a generic container whose current property is mutable ...
-   // ... and can hold any value, similar to an instance property on a class
-   const ref = useRef();
-
-   // Store current value in ref
-   useEffect(() => {
-      ref.current = value;
-   }, [value]); // Only re-run if value changes
-
-   // Return previous value (happens before update in useEffect above)
-   return ref.current;
-}
+import _usePrevious from './usePrevious';
 
 export const useResponsive = _useResponsive;
+export const usePrevious = _usePrevious;

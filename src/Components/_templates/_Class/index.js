@@ -1,7 +1,5 @@
-// lib
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// style
 import style from './component.module.scss';
 
 /**
@@ -10,11 +8,13 @@ import style from './component.module.scss';
 export default class CHANGE_ME extends Component {
    state = {};
 
-   /**
-    * Render the component.
-    * @return {ReactElement}
-    */
    render() {
       return null;
    }
 }
+
+CHANGE_ME.defaultProps = {};
+
+CHANGE_ME.propTypes = {
+   /** Comment prop  */
+};

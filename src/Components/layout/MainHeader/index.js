@@ -1,16 +1,28 @@
+// lib
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Layout, Icon, Typography } from 'antd';
+// util
 import { RouteMap } from 'Routes';
-import { Actions } from '../../../Store';
+import { useResponsive } from 'Components/hooks';
+import { $envDisplay } from 'Config';
+// store
+import { Actions } from 'Store';
+// style
 import style from './mainHeader.module.scss';
-import { useResponsive } from '../../hooks';
-import { $envDisplay } from '../../../Config';
+
 const { Header } = Layout;
 const { Title } = Typography;
 
-function MainHeader({ logout, sidebarIsCollapsed, toggleCollapsed }) {
+/**
+ * Main header for the application
+ * @param {Object} props
+ * @returns {ReactElement}
+ */
+function MainHeader(props) {
+   const { logout, sidebarIsCollapsed, toggleCollapsed } = props;
    const isMediumOrSmaller = useResponsive('md');
 
    return (
@@ -47,3 +59,12 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainHeader);
+
+MainHeader.propTypes = {
+   /** method to log out of the app */
+   logout: PropTypes.func.isRequired,
+   /** Is sidebar collapsed? */
+   sidebarIsCollapsed: PropTypes.bool.isRequired,
+   /** Is sidebar collapsed? */
+   toggleCollapsed: PropTypes.func.isRequired
+};

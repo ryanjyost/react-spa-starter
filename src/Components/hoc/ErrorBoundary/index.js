@@ -1,6 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-// wrap this around some React and it will render an error rather than crash the app
+/**
+ * Render an error instead of the component when exception caught
+ */
 export default class ErrorBoundary extends React.Component {
    constructor(props) {
       super(props);
@@ -31,7 +34,20 @@ export default class ErrorBoundary extends React.Component {
    }
 }
 
-// pass a component as an argument to this function before exporting to wrap it with an ErrorBoundary
+ErrorBoundary.propTypes = {
+   /** Component to wrap with ErrorBoundary */
+   children: PropTypes.node.isRequired,
+   /** Custom thing to render when an error */
+   renderError: PropTypes.func
+};
+
+/**
+ * An HOC that provides an error boundary
+ * https://reactjs.org/docs/error-boundaries.html
+ * @param {ReactComponent} Component - Component getting wrapped
+ * @param {ReactComponent} ErrorComponent - Component or render function to show
+ * @return {ReactComponent}
+ */
 export function withErrorBoundary(Component, ErrorComponent) {
    return class extends React.Component {
       render() {
