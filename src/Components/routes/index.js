@@ -3,7 +3,9 @@ import { Switch, Route } from 'react-router-dom';
 import { AppRoutesWrapper } from '../wrappers';
 import { NotFound } from '../pages';
 
-// render route with sub Routes
+/**
+ * Render root of router stuff
+ */
 export const RootRouteComponentWithSubRoutes = ({ routes }) => {
    return (
       <Switch>
@@ -15,7 +17,9 @@ export const RootRouteComponentWithSubRoutes = ({ routes }) => {
    );
 };
 
-// render App Routes with Sub Routes
+/**
+ * Specific top level route component with app wrapper
+ */
 export const RootAppComponentWithRoutes = ({ routes }) => {
    return (
       <AppRoutesWrapper>
@@ -24,7 +28,9 @@ export const RootAppComponentWithRoutes = ({ routes }) => {
    );
 };
 
-// allows for rendering nested Route Components
+/**
+ * Render an route that has sub routes
+ */
 export const RouteWithSubRoutes = route => {
    return (
       <Route

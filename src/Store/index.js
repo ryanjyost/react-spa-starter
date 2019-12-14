@@ -3,16 +3,16 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import { persistStore } from 'redux-persist';
-import persist from './helpers/persist';
-import watcherSaga from './sagas';
+import persist from './persist';
+import watcherSaga from './watcherSaga';
 
 /*=== ACTIONS ===*/
-import { actions as DogActions } from './reducers/dogsReducer';
-import { actions as UserActions } from './reducers/userReducer';
+import { actions as DogActions } from 'Store/dogs';
+import { actions as UserActions } from 'Store/user';
 
 /*=== REDUCERS ===*/
-import dogsReducer from './reducers/dogsReducer';
-import userReducer from './reducers/userReducer';
+import dogsReducer from 'Store/dogs';
+import userReducer from 'Store/user';
 
 /* === CONFIGURE STORE === */
 export default function configureStore() {

@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Actions } from '../../../Store';
 import { Button } from 'antd';
+import { Actions } from 'Store';
 import style from './dogs.module.scss';
 
-function Dogs({ fetching, getRandomDogs, randomDogs }) {
-   // fetch some random dogs when component mounts for first time of app session
+/**
+ * Just an index page that shows pictures of random dogs
+ */
+function Dogs(props) {
+   const { fetching, getRandomDogs, randomDogs } = props;
+   /**
+    * Fetch some random dogs when component mounts for first time of app session
+    */
    useEffect(function() {
       if (!randomDogs.length) {
          getRandomDogs(20);
@@ -40,3 +47,12 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dogs);
+
+Dogs.propTypes = {
+   /** list of random dog images */
+   randomDogs: PropTypes.array,
+   /** fetch random dogs */
+   getRandomDogs: PropTypes.func,
+   /** are dogs being fetched? */
+   fetching: PropTypes.bool
+};

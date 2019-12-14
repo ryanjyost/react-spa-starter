@@ -1,12 +1,19 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Actions } from '../../../Store';
 import { Link } from 'react-router-dom';
-import { RouteMap } from '../../../Routes';
+import { Actions } from 'Store';
+import { RouteMap } from 'Routes';
 import style from './breeds.module.scss';
 
-function Breeds({ breeds, getBreeds }) {
-   // fetch some random dogs when component mounts for first time of app session
+/**
+ * Show links to breed detail pages
+ */
+function Breeds(props) {
+   const { breeds, getBreeds } = props;
+   /**
+    * Fetch breeds the first time visiting this page
+    */
    useEffect(function() {
       if (!breeds.length) {
          getBreeds();
@@ -40,3 +47,10 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Breeds);
+
+Breeds.propTypes = {
+   /** list of breeds */
+   breeds: PropTypes.array,
+   /** get list of breeds */
+   getBreeds: PropTypes.func
+};

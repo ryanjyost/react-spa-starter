@@ -1,4 +1,8 @@
-// make route paths accessible by single layer map of keys to avoid hard coding Routes in links
+/**
+ * Make route paths accessible by single layer map of keys to avoid hard coding Routes in links
+ * @param {Array} routes
+ * @returns {Object} objects that map route keys to path (pathMap) and route configs (configMap)
+ */
 export function generateRouteMap(routes) {
    let pathMap = {},
       configMap = {};

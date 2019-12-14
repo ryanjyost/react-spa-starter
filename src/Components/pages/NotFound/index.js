@@ -4,6 +4,9 @@ import { Result, Button } from 'antd';
 import { RouteMap } from 'Routes';
 import style from './notFound.module.scss';
 
+/**
+ * Show this if route doesn't match anything
+ */
 export default function NotFound() {
    return (
       <div className={style.container}>

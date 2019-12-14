@@ -124,7 +124,7 @@ Bash scripts that are too big for just declaring in `package.json` or ones that 
 #### `src`
 
 Pretty much everything that will change regularly is in the **`src`** directory.<br />
-- **`index.js`** => Where the app hooks into the DOM and top-level pieces are set up.<br />
+- **`watcherSaga.js`** => Where the app hooks into the DOM and top-level pieces are set up.<br />
 - **`/assets`** => Supplementary files like images, pdfs, spreadsheets, etc.<br />
 - **`/components`** => Basically anything that's React related (incl. hooks).<br />
 - **`/config`** => Environment configuration options and management for app variables/settings.<br />
@@ -158,9 +158,9 @@ file `.env-cmdrc.js`. This file type is supported by [env-cmd](https://github.co
 
 ### `/src/config`
 
-All environment configuration options for the app funnel through `/src/config/index.js`. The proper configuration is selected based on the `REACT_APP_ENV` (CRA's `NODE_ENV` is always production when built and deployed, so we need our own).
+All environment configuration options for the app funnel through `/src/config/watcherSaga.js`. The proper configuration is selected based on the `REACT_APP_ENV` (CRA's `NODE_ENV` is always production when built and deployed, so we need our own).
 
-In `/src/config/index.js`, you can pass through environment variables declared in `.env-cmdrc.js` or
+In `/src/config/watcherSaga.js`, you can pass through environment variables declared in `.env-cmdrc.js` or
 non-sensitive ones declared in `/src/config/env.js`
 
 #### Other options

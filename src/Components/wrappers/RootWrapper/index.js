@@ -1,13 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { withRouter } from 'react-router-dom';
 import { Layout, message, BackTop } from 'antd';
+// components, constants, etc.
 import { ErrorBoundary } from 'Components/hoc';
 import { ErrorPage } from 'Components/pages';
 import { $env, $envDisplay } from 'Config';
 import style from './rootWrapper.module.scss';
 
+/**
+ * Wraps the entire app
+ */
 class RootWrapper extends React.Component {
    componentDidUpdate(prevProps) {
       // show error banner if one found in redux
@@ -46,3 +51,10 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(RootWrapper));
+
+RootWrapper.propTypes = {
+   /** any redux error */
+   error: PropTypes.bool,
+   /** all routes */
+   children: PropTypes.node
+};

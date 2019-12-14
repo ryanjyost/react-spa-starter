@@ -1,8 +1,10 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-// these are ant-d's default breakpoints (basically bootstrap)
-// they should be set here as a single source of truth, so updates trickle throughout app
+/**
+ * These are ant-d's default breakpoints (basically bootstrap) They should be set here as a single source of truth, so updates trickle throughout app.
+ * @const {Object}
+ */
 export const _breakpoints = {
    xs: '480px',
    sm: '576px',
@@ -12,8 +14,12 @@ export const _breakpoints = {
    xxl: '1600px'
 };
 
-// custom hook for easily returning a bool for given breakpoint
-// e.g.) const isSmallDevice = useResponsive('sm')
+/**
+ * Custom hook for easily returning a bool for given breakpoint
+ * e.g.) const isSmallDevice = useResponsive('sm')
+ * @param {string} breakpoint
+ * @returns {Boolean} - whether the app is at or below the breakpoint
+ */
 export default function useResponsive(breakpoint) {
    return useMediaQuery({ maxWidth: _breakpoints[breakpoint] });
 }

@@ -1,11 +1,16 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Actions } from '../../../Store';
 import { Button } from 'antd';
 import { withRouter } from 'react-router-dom';
+import { Actions } from 'Store';
 import style from './breedDetails.module.scss';
 
-function BreedDetails({ breedDetailsDogs, getDogsByBreed, match, fetching }) {
+/**
+ * Show images for specific dog breed
+ */
+function BreedDetails(props) {
+   const { breedDetailsDogs, getDogsByBreed, match, fetching } = props;
    const { breed } = match.params;
    const dogs = breedDetailsDogs[breed];
 
@@ -46,3 +51,14 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(BreedDetails));
+
+BreedDetails.propTypes = {
+   /** list of dog images */
+   breedDetailsDogs: PropTypes.object,
+   /** fetch dogs for particular breed */
+   getDogsByBreed: PropTypes.func,
+   /** from withRouter  */
+   match: PropTypes.object,
+   /** are dogs being fetched? */
+   fetching: PropTypes.bool
+};

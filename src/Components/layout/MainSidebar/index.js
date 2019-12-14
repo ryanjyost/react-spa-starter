@@ -1,15 +1,26 @@
+// lib
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
-import logo from '../../../Assets/images/logo.svg';
+import logo from 'Assets/images/logo.svg';
 import { Layout, Menu, Icon } from 'antd';
-import STYLES from '../../../Styles';
-import { useResponsive } from '../../hooks';
-import { AppRoutes } from '../../../Routes';
+// util
+import { useResponsive } from 'Components/hooks';
+import { AppRoutes } from 'Routes';
+import { COLLAPSED_SIDEBAR_WIDTH } from 'Constants';
+// style
 import style from './mainSidebar.module.scss';
+
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
-function MainSidebar({ isCollapsed, location }) {
+/**
+ * Main sidebar for the app
+ * @param props
+ * @returns {ReactElement}
+ */
+function MainSidebar(props) {
+   const { isCollapsed, location } = props;
    const isMediumOrSmaller = useResponsive('md');
 
    return (
@@ -19,7 +30,7 @@ function MainSidebar({ isCollapsed, location }) {
          trigger={null}
          collapsible
          collapsed={isCollapsed}
-         collapsedWidth={isMediumOrSmaller ? 0 : STYLES.collapsedSidebarWidth}>
+         collapsedWidth={isMediumOrSmaller ? 0 : COLLAPSED_SIDEBAR_WIDTH}>
          <div
             className={`logo ${style.logoWrapper} ${
                isCollapsed ? style.logoWrapperCollapsed : style.logoWrapperExpanded
@@ -36,7 +47,18 @@ function MainSidebar({ isCollapsed, location }) {
 
 export default withRouter(MainSidebar);
 
-// function to be able to recursively loop through Routes
+MainSidebar.propTypes = {
+   /** Is the sidebar collapsed? */
+   isCollapsed: PropTypes.bool.isRequired,
+   /** info from withRouter */
+   location: PropTypes.object.isRequired
+};
+
+/**
+ * Recursively loop through and render routes
+ * @param {Object} route - route config
+ * @returns {ReactElement} appropriate menu components
+ */
 function displayRoute(route) {
    if (route.routes && route.showInMainNav) {
       return (

@@ -6,7 +6,6 @@ const PRODUCTION_BUCKET = 'prod_bucket';
 const env = {
    common: {
       REACT_APP_ApiBaseUrl: 'https://dog.ceo/api',
-      REACT_APP_ClientUrl: 'http://localhost:3000',
       BUCKET_NAME: 'react-spa-starter',
       ACM_CERT_ARN: 'update_me',
       // if doing basic stuff, no need for staging and prod
@@ -17,15 +16,18 @@ const env = {
       SASS_PATH: 'node_modules:src'
    },
    local: {
-      REACT_APP_ENV: 'local'
+      REACT_APP_ENV: 'local',
+      REACT_APP_ClientUrl: 'http://localhost:3000'
    },
    staging: {
       REACT_APP_ENV: 'STAGING',
+      REACT_APP_ClientUrl: 'www.staging.website.com',
       BUCKET_NAME: STAGING_BUCKET,
       CLOUDFRONT_DIST_ID: STAGING_CF_DIST_ID
    },
    production: {
       REACT_APP_ENV: 'PRODUCTION',
+      REACT_APP_ClientUrl: 'www.website.com',
       BUCKET_NAME: PRODUCTION_BUCKET,
       CLOUDFRONT_DIST_ID: PRODUCTION_CF_DIST_ID
    }

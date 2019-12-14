@@ -1,8 +1,7 @@
-// lib
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// style
+
 import style from './component.module.scss';
 
 /**
@@ -11,10 +10,6 @@ import style from './component.module.scss';
 class CHANGE_ME extends Component {
    state = {};
 
-   /**
-    * Render the component.
-    * @return {ReactElement}
-    */
    render() {
       return null;
    }
@@ -29,3 +24,9 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CHANGE_ME);
+
+CHANGE_ME.defaultProps = {};
+
+CHANGE_ME.propTypes = {
+   /** Comment prop  */
+};

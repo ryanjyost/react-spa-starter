@@ -1,5 +1,12 @@
 import { call, put } from 'redux-saga/effects';
 
+/**
+ *
+ * @param api
+ * @param action
+ * @param payload
+ * @returns {Generator}
+ */
 function* saga({ api, action }, { payload }) {
    try {
       const response = yield call(api.doThing);

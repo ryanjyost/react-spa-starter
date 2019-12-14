@@ -1,5 +1,5 @@
 // ***********************************************
-// This example index.js shows you how to
+// This example watcherSaga.js shows you how to
 // create various custom commands and overwrite
 // existing commands.
 //

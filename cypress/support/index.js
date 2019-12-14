@@ -1,5 +1,5 @@
 // ***********************************************************
-// This example support/index.js is processed and
+// This example support/watcherSaga.js is processed and
 // loaded automatically before your test files.
 //
 // This is a great place to put global configuration and
@@ -13,7 +13,7 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-// Import index.js using ES2015 syntax:
+// Import watcherSaga.js using ES2015 syntax:
 import './commands/index';
 
 /**********************************
