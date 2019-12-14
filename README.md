@@ -132,7 +132,7 @@ Pretty much everything that will change regularly is in the **`src`** directory.
 - **`/routes`** => React Router structure and configuration (mapping routes to components, etc.).<br />
 - **`/services`** => Modules and libraries, e.g. external API interfaces.<br />
 - **`/store`** => Store configuration, Redux and Redux Saga.<br />
-- **`/styles`** => Traditional stylesheets, global style variables and `react-responsive` settings.<br />
+- **`/styles`** => Traditional stylesheets, global style variables and `responsive-react` settings.<br />
 - **`/tests`** => Unit tests.
 
 ___
