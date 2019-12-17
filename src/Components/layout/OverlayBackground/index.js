@@ -4,8 +4,6 @@ import style from './overlayBackground.module.scss';
 
 /**
  * Custom overlay background used with MainSidebar on smaller devices
- * @param props
- * @returns {ReactElement}
  */
 export default function OverlayBackground(props) {
    const { handleClick } = props;

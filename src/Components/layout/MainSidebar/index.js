@@ -16,8 +16,6 @@ const { SubMenu } = Menu;
 
 /**
  * Main sidebar for the app
- * @param props
- * @returns {ReactElement}
  */
 function MainSidebar(props) {
    const { isCollapsed, location } = props;

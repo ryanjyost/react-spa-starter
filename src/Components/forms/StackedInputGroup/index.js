@@ -4,8 +4,6 @@ import style from './stackedInputGroup.module.scss';
 
 /**
  * Ant-d only has horizontal labels, so just make own label and pass input as children
- * @param {Object} Component props
- * @return {ReactElement}
  */
 
 export default function StackedInputGroup({ label, children }) {
