@@ -18,8 +18,6 @@ const { Title } = Typography;
 
 /**
  * Main header for the application
- * @param {Object} props
- * @returns {ReactElement}
  */
 function MainHeader(props) {
    const { logout, sidebarIsCollapsed, toggleCollapsed } = props;
