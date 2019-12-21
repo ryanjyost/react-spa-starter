@@ -37,20 +37,7 @@ context(`Test the boilerplate`, function() {
       cy.get(`input[name="username"]`).should('exist');
    });
 
-   specify(`View a list of random dogs`, function() {
-      cy.server();
-      login();
-      cy.get('#sideBarToggle').click();
-      cy.get('.ant-menu-submenu-title')
-         .contains('Dogs')
-         .click();
-      cy.get('.ant-menu-item')
-         .contains('Dogs')
-         .click();
-      cy.get('.dogImage').should('have.length', 20);
+   specify.skip(`Fail the test suite`, function() {
+      assert(1 === 2);
    });
-
-	specify.skip(`Fail the test suite`, function() {
-		assert(1 === 2);
-	});
 });
