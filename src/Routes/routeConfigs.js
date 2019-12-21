@@ -1,100 +1,119 @@
 import React from 'react';
-import { Login, Dogs, Breeds, BreedDetails } from 'Components/pages';
-import { RootAppComponentWithRoutes, RootRouteComponentWithSubRoutes } from 'Components/routes';
+import { Typography } from 'antd';
+import { Login } from 'Components/pages';
+import { RootAppComponentWithRoutes, RootRouteWithSubRoutes } from 'Components/routes';
+const { Title } = Typography;
 
-/*******************************
- Configs
- ********************************/
+/**
+ * An array of route configs, with nested objects/arrays in the same structure of the app's routes
+ */
 const ROUTES = [
    { key: 'ROOT', path: '/', title: 'Home', component: Login, exact: true },
    {
-      /* APP */
-      key: 'APP',
+      key: 'APP_ROOT',
       path: '/app',
       title: 'App',
       component: RootAppComponentWithRoutes,
-      showInMainNav: 'skip',
       routes: [
          {
-            key: 'APP_ROOT',
+            key: 'APP_INDEX',
             path: '/app',
             title: 'Home',
-            component: () => <h1>Welcome to the App</h1>,
+            component: () => <Title>Welcome to the App</Title>,
             icon: 'home',
-            exact: true,
-            showInMainNav: true
+            exact: true
          },
          {
-            key: 'dogs',
-            path: `/app/dogs`,
-            title: 'Dogs',
-            component: RootRouteComponentWithSubRoutes,
-            showInMainNav: true,
+            key: 'APP_PAGE',
+            path: '/app/page',
+            title: 'App Page',
+            component: () => <Title>App Page</Title>,
+            icon: 'file',
+            exact: true
+         },
+         {
+            key: 'SECTION_1_ROOT',
+            path: '/app/section1',
+            title: 'Section 1',
+            component: RootRouteWithSubRoutes,
             icon: 'smile',
             routes: [
                {
-                  key: 'DOGS_ROOT',
-                  path: '/app/dogs',
+                  key: 'SECTION_1_INDEX',
+                  path: '/app/section1',
                   exact: true,
-                  title: 'Dogs',
-                  component: Dogs,
-                  showInMainNav: true
+                  title: 'Index Page',
+                  component: () => <Title>Index Page</Title>
                },
                {
-                  key: 'DOGS_BREEDS',
-                  path: '/app/dogs/breeds',
-                  title: 'Dog Breeds',
-                  component: RootRouteComponentWithSubRoutes,
-                  showInMainNav: true,
+                  key: 'SECTION_1_PAGE',
+                  path: '/app/section1/page',
+                  exact: true,
+                  title: 'Another Page',
+                  component: () => <Title>Another Page</Title>
+               },
+               {
+                  key: 'SECTION_1_SUBSECTION_1',
+                  path: '/app/section1/subsection',
+                  title: 'Subsection',
+                  component: RootRouteWithSubRoutes,
                   routes: [
                      {
-                        key: 'DOGS_BREEDS_ROOT',
-                        path: '/app/dogs/breeds',
+                        key: 'SECTION_1_SUBSECTION_1_INDEX',
+                        path: '/app/section1/subsection',
                         exact: true,
-                        title: 'All Dog Breeds',
-                        component: Breeds,
-                        showInMainNav: true
+                        title: 'Subsection Index',
+                        component: () => <Title>Subsection Index</Title>
                      },
                      {
-                        key: 'BREEDS_DETAILS',
-                        path: '/app/dogs/breeds/:breed',
-                        title: 'Breed Details',
-                        component: BreedDetails
+                        key: 'SECTION_1_SUBSECTION_1_PAGE',
+                        path: '/app/section1/subsection/page',
+                        title: 'Subsection Page',
+                        component: () => <Title>Subsection Page</Title>
                      }
                   ]
                }
             ]
          },
          {
-            key: 'CATS',
-            path: `/app/cats`,
-            title: 'Cats',
-            component: RootRouteComponentWithSubRoutes,
-            showInMainNav: true,
+            key: 'SECTION_2_ROOT',
+            path: '/app/section2',
+            title: 'Section 2',
+            component: RootRouteWithSubRoutes,
             icon: 'frown',
             routes: [
                {
-                  key: 'CATS_ROOT',
-                  path: '/app/cats',
-                  title: 'Cats',
-                  component: () => <h1>CATS!</h1>,
+                  key: 'SECTION_2_INDEX',
+                  path: '/app/section2',
                   exact: true,
-                  showInMainNav: true
+                  title: 'Index Page',
+                  component: () => <Title>Index Page</Title>
                },
                {
-                  key: 'CATS_BREEDS',
-                  path: `/app/cats/breeds`,
-                  title: 'Cat Breeds',
-                  component: RootRouteComponentWithSubRoutes,
-                  showInMainNav: true,
+                  key: 'SECTION_2_PAGE',
+                  path: '/app/section2/page',
+                  exact: true,
+                  title: 'Another Page',
+                  component: () => <Title>Another Page</Title>
+               },
+               {
+                  key: 'SECTION_2_SUBSECTION_2',
+                  path: '/app/section2/subsection',
+                  title: 'Subsection',
+                  component: RootRouteWithSubRoutes,
                   routes: [
                      {
-                        key: 'CATS_BREEDS_ROOT',
-                        path: '/app/cats/breeds',
-                        title: 'All Cat Breeds',
-                        component: () => <h1>Cat Breeds!</h1>,
+                        key: 'SECTION_2_SUBSECTION_2_INDEX',
+                        path: '/app/section2/subsection',
                         exact: true,
-                        showInMainNav: true
+                        title: 'Subsection Index',
+                        component: () => <Title>Subsection Index</Title>
+                     },
+                     {
+                        key: 'SECTION_2_SUBSECTION_2_PAGE',
+                        path: '/app/section2/subsection/page',
+                        title: 'Subsection Page',
+                        component: () => <Title>Subsection Page</Title>
                      }
                   ]
                }

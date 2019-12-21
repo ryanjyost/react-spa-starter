@@ -6,37 +6,35 @@ import { persistStore } from 'redux-persist';
 import persist from './persist';
 import watcherSaga from './watcherSaga';
 
-/*=== ACTIONS ===*/
-import { actions as DogActions } from 'Store/dogs';
+/**
+ * Actions
+ */
 import { actions as UserActions } from 'Store/user';
 
-/*=== REDUCERS ===*/
-import dogsReducer from 'Store/dogs';
+/**
+ * Reducers
+ */
 import userReducer from 'Store/user';
 
-/* === CONFIGURE STORE === */
+/**
+ * Configure store
+ */
 export default function configureStore() {
    const middleware = [];
    const enhancers = [];
 
-   /* ------------- Redux Configuration ------------- */
    // map reducers to keys in the top level redux global state object
    const combinedReducers = combineReducers({
-      dogs: dogsReducer,
       user: userReducer
    });
 
-   // certain dog data is persisted inside the dogReducer
+   // set top-level pieces of the store to persist - can get more granular in each reducer
    const persistedReducer = persist('root', ['user'], combinedReducers);
 
-   /* ------------- Saga Middleware ------------- */
    const sagaMiddleware = createSagaMiddleware();
    middleware.push(sagaMiddleware);
-
-   /* ------------- Assemble Middleware ------------- */
    enhancers.push(applyMiddleware(...middleware));
 
-   /* ------------- Create Persisted Store ------------- */
    const store = createStore(persistedReducer, composeWithDevTools(...enhancers));
    const persistor = persistStore(store);
 
@@ -47,4 +45,4 @@ export default function configureStore() {
 }
 
 // make actions available for dispatch
-export const Actions = { ...DogActions, ...UserActions };
+export const Actions = { ...UserActions };

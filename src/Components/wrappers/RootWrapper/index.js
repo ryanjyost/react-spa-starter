@@ -40,9 +40,9 @@ class RootWrapper extends React.Component {
 }
 
 const mapStateToProps = state => {
-   const { dogs, user } = state;
+   const { user } = state;
 
-   const error = dogs.error || user.error;
+   const error = user.error;
    return { error };
 };
 
