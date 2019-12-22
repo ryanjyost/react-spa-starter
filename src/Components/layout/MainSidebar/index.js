@@ -58,7 +58,10 @@ MainSidebar.propTypes = {
  * @returns {ReactElement} appropriate menu components
  */
 function displayRoute(route) {
-   if (route.routes && route.showInMainNav) {
+   // route can be skipped
+   if (route.hideInMainNav) return null;
+
+   if (route.routes) {
       return (
          <SubMenu
             key={route.key}
@@ -72,9 +75,6 @@ function displayRoute(route) {
          </SubMenu>
       );
    }
-
-   // route can be skipped
-   if (!route.showInMainNav) return null;
 
    return (
       <Menu.Item key={route.path}>

@@ -26,7 +26,7 @@ const LoginScreen = ({ login, isAuthenticated, fetching }) => {
 
    // no need to login, enter the app
    if (isAuthenticated) {
-      return <Redirect to={RouteMap.APP} />;
+      return <Redirect to={RouteMap.APP_INDEX} />;
    }
 
    return (
@@ -79,7 +79,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
 LoginScreen.propTypes = {
    /** method to login a user */
    login: PropTypes.func,
-   /** is user authenticatd? */
+   /** is user authenticated? */
    isAuthenticated: PropTypes.bool,
    /** is user being logged in? */
    fetching: PropTypes.bool

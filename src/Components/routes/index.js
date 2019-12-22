@@ -6,12 +6,14 @@ import { NotFound } from '../pages';
 /**
  * Render root of router stuff
  */
-export const RootRouteComponentWithSubRoutes = ({ routes }) => {
+export const RootRouteWithSubRoutes = ({ routes }) => {
+   // console.log('LIST', routes);
    return (
       <Switch>
-         {routes.map((route, i) => (
-            <RouteWithSubRoutes key={route.key} {...route} />
-         ))}
+         {routes.map((route, i) => {
+            // console.log(route.key);
+            return <RouteWithSubRoutes key={route.key} {...route} />;
+         })}
          <Route component={NotFound} />
       </Switch>
    );
@@ -23,20 +25,23 @@ export const RootRouteComponentWithSubRoutes = ({ routes }) => {
 export const RootAppComponentWithRoutes = ({ routes }) => {
    return (
       <AppRoutesWrapper>
-         <RootRouteComponentWithSubRoutes routes={routes} />
+         <RootRouteWithSubRoutes routes={routes} />
       </AppRoutesWrapper>
    );
 };
 
 /**
- * Render an route that has sub routes
+ * Render a route that has sub routes
  */
 export const RouteWithSubRoutes = route => {
+   const config = { ...route };
+   delete config.component;
+   console.log('ROUTE', route.path);
    return (
       <Route
          path={route.path}
          exact={route.exact}
-         render={props => <route.component {...props} routes={route.routes} />}
+         render={props => <route.component {...props} config={config} routes={route.routes} />}
       />
    );
 };

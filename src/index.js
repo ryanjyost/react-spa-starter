@@ -7,7 +7,7 @@ import * as serviceWorker from './Services/serviceWorker';
 import configureStore from './Store';
 import routes from './Routes';
 import { RootWrapper } from './Components/wrappers';
-import { RootRouteComponentWithSubRoutes } from './Components/routes';
+import { RootRouteWithSubRoutes } from './Components/routes';
 import './Styles/index.scss';
 
 console.log('ENV', process.env.REACT_APP_ENV);
@@ -20,7 +20,7 @@ ReactDOM.render(
       <PersistGate loading={null} persistor={persistor}>
          <Router>
             <RootWrapper>
-               <RootRouteComponentWithSubRoutes routes={routes} />
+               <RootRouteWithSubRoutes routes={routes} />
             </RootWrapper>
          </Router>
       </PersistGate>
