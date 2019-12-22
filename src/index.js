@@ -11,7 +11,7 @@ import { RootRouteWithSubRoutes } from './Components/routes';
 import './Styles/index.scss';
 
 console.log('ENV', process.env.REACT_APP_ENV);
-console.log('Deployment Check', 1);
+console.log('Deployment Check', 2);
 
 const { store, persistor } = configureStore();
 

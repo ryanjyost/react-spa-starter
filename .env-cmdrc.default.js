@@ -1,14 +1,12 @@
-const STAGING_CF_DIST_ID = 'update_me';
-const PRODUCTION_CF_DIST_ID = 'update_me';
 const STAGING_BUCKET = 'staging_bucket';
 const PRODUCTION_BUCKET = 'prod_bucket';
+const STAGING_CF_DIST_ID = 'update_me';
+const PRODUCTION_CF_DIST_ID = 'update_me';
 
 const env = {
    common: {
-      REACT_APP_ApiBaseUrl: 'https://dog.ceo/api',
       BUCKET_NAME: 'react-spa-starter',
       ACM_CERT_ARN: 'update_me',
-      // if doing basic stuff, no need for staging and prod
       STAGING_CF_DIST_ID,
       PRODUCTION_CF_DIST_ID,
       STAGING_BUCKET,
