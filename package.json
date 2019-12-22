@@ -3,8 +3,8 @@
    "version": "0.1.0",
    "private": true,
    "engines": {
-      "node": ">=12.14.0",
-      "npm": ">=6.13.4"
+      "node": ">=12.8.0",
+      "npm": ">=6.12.0"
    },
    "scripts": {
       "build": "env CI='false' react-app-rewired build",
