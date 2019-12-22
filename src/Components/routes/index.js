@@ -7,11 +7,9 @@ import { NotFound } from '../pages';
  * Render root of router stuff
  */
 export const RootRouteWithSubRoutes = ({ routes }) => {
-   // console.log('LIST', routes);
    return (
       <Switch>
          {routes.map((route, i) => {
-            // console.log(route.key);
             return <RouteWithSubRoutes key={route.key} {...route} />;
          })}
          <Route component={NotFound} />
@@ -36,7 +34,7 @@ export const RootAppComponentWithRoutes = ({ routes }) => {
 export const RouteWithSubRoutes = route => {
    const config = { ...route };
    delete config.component;
-   console.log('ROUTE', route.path);
+
    return (
       <Route
          path={route.path}
