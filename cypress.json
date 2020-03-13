@@ -1,17 +1,1 @@
-{
-   "baseUrl": "http://localhost:3000",
-   "ignoreTestFiles": "**/_examples/**",
-   "viewportWidth": 1280,
-   "viewportHeight": 800,
-   "video": false,
-   "videosFolder": "cypress/video",
-   "screenshotsFolder": "cypress/screenshots",
-   "fixturesFolder": "cypress/fixtures",
-   "integrationFolder": "cypress/integration",
-   "pluginsFile": "cypress/plugins/index.js",
-   "supportFile": "cypress/support/index.js",
-   "reporter": "cypress-multi-reporters",
-   "reporterOptions": {
-      "configFile": "cypress/reporterOptions.json"
-   }
-}
+{}
