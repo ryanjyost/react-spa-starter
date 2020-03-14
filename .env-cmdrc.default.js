@@ -10,11 +10,10 @@ const env = {
       STAGING_CF_DIST_ID,
       PRODUCTION_CF_DIST_ID,
       STAGING_BUCKET,
-      PRODUCTION_BUCKET,
-      SASS_PATH: 'node_modules:src'
+      PRODUCTION_BUCKET
    },
    local: {
-      REACT_APP_ENV: 'local',
+      REACT_APP_ENV: 'LOCAL',
       REACT_APP_ClientUrl: 'http://localhost:3000'
    },
    staging: {

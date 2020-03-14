@@ -1,12 +1,5 @@
 {
    "plugins": ["cypress"],
    "env": { "es6": true },
-   "extends": ["plugin:react/recommended"],
-   "settings": {
-      "import/resolver": {
-         "node": {
-            "paths": ["src"]
-         }
-      }
-   }
+   "extends": ["plugin:react/recommended"]
 }
