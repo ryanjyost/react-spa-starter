@@ -7,7 +7,7 @@
       "npm": ">=6.10.0"
    },
    "scripts": {
-      "build": "env CI='false' react-app-rewired build",
+      "build": "env CI='false' react-scripts build",
       "build:prod": "env-cmd -e common,production npm run build",
       "build:staging": "env-cmd -e common,staging npm run build",
       "check:circular": "madge --circular ./src",
@@ -40,7 +40,6 @@
       "prop-types": "15.7.2",
       "react": "16.11.0",
       "react-dom": "16.11.0",
-      "react-markdown": "^4.3.1",
       "react-router-dom": "5.1.2",
       "react-scripts": "3.2.0",
       "shelljs": "^0.8.3"
