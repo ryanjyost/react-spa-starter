@@ -28,7 +28,7 @@ It started out with way more boilerplate, but I really minimized what's in it re
 1. Make sure you have modern versions of Node (>= 10.16.0) and npm (>= 6.9.0). Using [nvm](https://github.com/nvm-sh/nvm) makes life easy.
 2. Clone this repo with `git clone https://github.com/ryanjyost/react-spa-starter.git <YOUR_PROJECT_NAME>`
 3. `cd <YOUR_PROJECT_NAME>`
-4. Run `npm run setup`, which installs dependencies and starts the app.
+4. Run `npm install` and `npm start`.
 5. You should see the app open up in your browser at `http://localhost:3000`.
 
 ### Deploy to an AWS S3 Bucket
