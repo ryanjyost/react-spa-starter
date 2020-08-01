@@ -52,7 +52,7 @@ _This project comes with CircleCI just because it's easy and free for public rep
 2. Create an account on [CircleCI](https://circleci.com/) and select your forked repo. [See the docs](https://circleci.com/docs/2.0/first-steps/) for more detail.
 3. Go to the settings of your project in the CircleCI dashboard and add any environment variables needed for building
    and deploying to your S3 Bucket (or other host if you're not using AWS). You'll probably need `AWS_ACCESS_KEY_ID`,
-   `AWS_SECRET_ACCESS_KEY`, `BUCKET_NAME`.
+   `AWS_SECRET_ACCESS_KEY` (get these as IAM security creds with proper perms to uploa to S3), `BUCKET_NAME`.
 4. Push an update to master (like a console log you can see in the browser) and check your CircleCI dashboard. If all
    went well, CircleCI should run two jobs...
    1. `test-cypress` runs the boilerplate end-to-end tests. And if those pass...
